@@ -1,4 +1,5 @@
-import './App.css';
+// import './App.css';
+import GridMaker from "../grid/GridMaker.js";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           Light Cycle is gonna be AWESOME!!! Check out a video of it here...
         </a>
       </header>
+      <GridMaker key="someKey" />
     </div>
   );
 }

@@ -1,0 +1,8 @@
+.cell {
+    background-color: #282c34;
+    border: 1px solid lightcyan;
+    color: white;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
