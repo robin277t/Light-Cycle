@@ -6,3 +6,13 @@
     width: 40px;
     text-align: center;
 }
+
+.wall {
+    background-color: rgb(51, 12, 0);
+    color: rgb(51, 12, 0);
+
+}
+
+.trail {
+    background-color: red;
+}

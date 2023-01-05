@@ -1,8 +1,13 @@
-const Cell = ({ id, wall, trail }) => {
+import "./Cell.css";
+
+const Cell = ({ id, wall, trail, cycle}) => {
+  // if (cycle === id){
+  //   trail = 10;
+  // }
 
   return (
     <>
-    <div>{id}</div>
+    <div className={ cycle === id ? "trail" : ""} >{id}</div>
     {/* {console.log(id) } */}
   </>
   )

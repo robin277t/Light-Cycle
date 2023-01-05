@@ -1,5 +1,6 @@
 // import './App.css';
 import GridMaker from "../grid/GridMaker.js";
+import GameLoop from "../grid/GameLoop.js";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           Light Cycle is gonna be AWESOME!!! Check out a video of it here...
         </a>
       </header>
-      <GridMaker key="someKey" />
+
+      <GameLoop/>
     </div>
   );
 }
