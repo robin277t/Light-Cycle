@@ -1,5 +1,5 @@
 import './App.css';
-
+import Canvas from '../Canvas';
 function App() {
   return (
     <div className="App">
@@ -12,6 +12,7 @@ function App() {
         >
           Light Cycle is gonna be AWESOME!!! Check out a video of it here...
         </a>
+          <Canvas />
       </header>
     </div>
   );
