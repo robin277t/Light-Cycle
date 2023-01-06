@@ -16,7 +16,7 @@ function App() {
         </a>
       </header>
 
-      <GameLoop/>
+      <GameLoop gridSide = {10}/>
     </div>
   );
 }

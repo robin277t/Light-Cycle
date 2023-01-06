@@ -2,9 +2,9 @@ import Cell from "./Cell.js";
 import "./GridMaker.css";
 import "./Cell.css";
 
-const GridMaker = ({cycle}) => {
+const GridMaker = ({cycle, gridSide}) => {
   //gridSize is the variable to alter to edit overall grid size
-  const gridSize = 10;
+  const gridSize = gridSide;
 
   const gridColumns = 'auto '.repeat(gridSize)
   const gridStyle = {gridTemplateColumns: gridColumns}
