@@ -7,7 +7,7 @@ const Cell = ({ id, wall, trail, cycle}) => {
 
   return (
     <>
-    <div className={ cycle === id ? "trail" : ""} >{id}</div>
+    <div className={ cycle === id ? "head" : ""} >{id}</div>
     {/* {console.log(id) } */}
   </>
   )

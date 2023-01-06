@@ -2,7 +2,7 @@ import Cell from "./Cell.js";
 import "./GridMaker.css";
 import "./Cell.css";
 
-const GridMaker = ({cycle, gridSide}) => {
+const GridMaker = ({cycle, gridSide, trail}) => {
   //gridSize is the variable to alter to edit overall grid size
   const gridSize = gridSide;
 
@@ -17,13 +17,16 @@ const GridMaker = ({cycle, gridSide}) => {
     <div className="grid" style={gridStyle}>
       {generationArray.map((value) => {
         let isWall = false;
+        let isHead = (cycle === value)
+        let isTrail = trail.includes(value);
+
         if (value <= gridSize || 
           ((value - 1) % gridSize === 0) ||
           (value % gridSize === 0) || 
           (value > (gridSize ** 2 - gridSize))) {
             isWall = true;
           }
-        return <div className={isWall ? "cell wall" : "cell" } key={value} >
+        return <div className={isWall ? "cell wall" : isTrail ? "cell trail" :isHead ? "cell head" : "cell" } key={value} >
           <Cell wall={isWall} trail={0} id={value} cycle={cycle}/>
         </div>
       })}
