@@ -16,7 +16,7 @@ function App() {
         </a>
       </header>
 
-      <GameLoop gridSide = {60}/>
+      <GameLoop gridSide={60} trailLength={20} gameSpeed={20} players={{2}} />
     </div>
   );
 }
