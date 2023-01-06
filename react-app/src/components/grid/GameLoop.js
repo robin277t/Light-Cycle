@@ -1,51 +1,70 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import Cell from "./Cell.js";
 import GridMaker from "./GridMaker.js";
-import "./GameLoop.css"
+import "./GameLoop.css";
 
-const GameLoop = ({gridSide}) => {
+const GameLoop = ({ gridSide }) => {
   const [cycle, setCycle] = useState(12);
-  const [direction, setDirection] = useState('right')
+  const [direction, setDirection] = useState("right");
 
-  const handleDirectionChange = (event) =>{
+  let initialStateArray = new Array(gridSide ** 2)
+    .fill(0)
+    .map((value, index, array) => {
+      if (
+        index < gridSide ||
+        index % gridSide === 0 ||
+        (index + 1) % gridSide === 0 ||
+        index > gridSide ** 2 - gridSide
+      ) {
+        return (array[index] = -1);
+      } else {
+        return (array[index] = 0);
+      }
+    });
+  console.log(initialStateArray);
+
+  const [gameState, setGameState] = useState(initialStateArray);
+
+  const handleDirectionChange = (event) => {
     switch (event.key) {
-      case 'a' :
-        setDirection('left')
-      break;
-      case 'd' :
-        setDirection('right');
+      case "a":
+        setDirection("left");
         break;
-      case 'w' :
-        setDirection('top');
+      case "d":
+        setDirection("right");
         break;
-      case 's' :
-        setDirection('bottom');
+      case "w":
+        setDirection("top");
+        break;
+      case "s":
+        setDirection("bottom");
         break;
       default:
-        setDirection('right');
+        setDirection("right");
     }
-  }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
       switch (direction) {
-        case 'right':
-          setCycle((prev) => prev + 1)
-          break
-        case 'left':
-          setCycle((prev) => prev - 1)
-          break
-        case 'top':
-          setCycle((prev) => prev - gridSide)
-          break
-        case 'bottom':
-          setCycle((prev) => prev + gridSide)
-          break
-        default:;
+        case "right":
+          setCycle((prev) => prev + 1);
+          break;
+        case "left":
+          setCycle((prev) => prev - 1);
+          break;
+        case "top":
+          setCycle((prev) => prev - gridSide);
+          break;
+        case "bottom":
+          setCycle((prev) => prev + gridSide);
+          break;
+        default:
       }
     }, 500);
     console.log(direction);
-    if (cycle > gridSide**2) {
+    // console.log(gameState);
+    if (cycle > gridSide ** 2) {
       setCycle(cycle % gridSide ** 2);
     } else if (cycle < 1) {
       setCycle(1);
@@ -53,12 +72,20 @@ const GameLoop = ({gridSide}) => {
     return () => clearInterval(interval);
   }, [cycle, direction]);
 
-
   return (
     <>
-    <input className="grid-area" type="text" onKeyDown={handleDirectionChange}/>
-    <GridMaker key="someKey" cycle={cycle} gridSide = {gridSide}/>
+      <input
+        className="grid-area"
+        type="text"
+        onKeyDown={handleDirectionChange}
+      />
+      <GridMaker
+        key="someKey"
+        cycle={cycle}
+        gameState={gameState}
+        gridSide={gridSide}
+      />
     </>
-  )
-}
+  );
+};
 export default GameLoop;

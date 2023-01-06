@@ -1,20 +1,13 @@
 import "./Cell.css";
 
-const Cell = ({ id, wall, trail, cycle}) => {
-  // if (cycle === id){
-  //   trail = 10;
-  // }
+const Cell = ({ id, trail, cycle}) => {
 
   return (
     <>
-    <div className={ cycle === id ? "trail" : ""} >{id}</div>
-    {/* {console.log(id) } */}
-  </>
+      <div>{trail}</div>
+    </>
   )
 };
 
 export default Cell;
 
-// Cell.ID
-// Cell.Wall
-// Cell.Trail
