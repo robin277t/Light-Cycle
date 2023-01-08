@@ -1,0 +1,26 @@
+.GameOver {
+  text-align: center;
+}
+
+.GameOver-header {
+  background-color: #0c52df;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Button-1 {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(14, 13, 13);
+}
+
+

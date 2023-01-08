@@ -6,15 +6,22 @@
     width: 10px;
     text-align: center;
 }
+.head1 {
+    background-color: blueviolet;
+}
+
+.head2 {
+    background-color: rgb(4, 114, 46);
+}
 
 .wall {
     background-color: cyan;
 }
 
-.trail {
+.trail1 {
     background-color: red;
 }
 
-.head {
-    background-color: blueviolet;
+.trail2 {
+    background-color: rgb(200, 238, 46);
 }
