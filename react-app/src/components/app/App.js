@@ -15,7 +15,8 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Welcomet to Light Cycle is AWESOME!!! Check out a video of it here... note not actual gameplay
+          Welcomet to Light Cycle is AWESOME!!! Check out a video of it here...
+          note not actual gameplay
         </a>
       </header>
       <StartMenu />
