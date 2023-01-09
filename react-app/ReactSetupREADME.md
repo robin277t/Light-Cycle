@@ -15,6 +15,9 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `npm test`
+QUESTION: How do we add coverage in here?
+### `npm test -- --coverage`
+ANSWER: Do above. Probably can be put in react-scripts/test to make automatic
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

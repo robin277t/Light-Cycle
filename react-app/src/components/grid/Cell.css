@@ -1,0 +1,27 @@
+.cell {
+    background-color: #282c34;
+    /* border: 1px solid lightcyan; */
+    color: white;
+    height: 10px;
+    width: 10px;
+    text-align: center;
+}
+.head1 {
+    background-color: blueviolet;
+}
+
+.head2 {
+    background-color: rgb(4, 114, 46);
+}
+
+.wall {
+    background-color: cyan;
+}
+
+.trail1 {
+    background-color: red;
+}
+
+.trail2 {
+    background-color: rgb(200, 238, 46);
+}
