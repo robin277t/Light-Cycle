@@ -1,3 +1,12 @@
+html,
+body {
+  background: radial-gradient(bg 0, darken(bg, 15%) 100%);
+  min-height: 100vh;
+  font-family: font, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -17,3 +26,41 @@
   color: #61dafb;
 }
 
+.menu-container {
+  box-shadow: 0 0px 50px hsla(0, 0, 0, 0.7);
+  position: relative;
+  transform: translate(0);
+  margin: 0 auto;
+  width: 350px;
+}
+
+.menu-item {
+  align-items: center;
+  list-style: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  letter-spacing: 4px;
+  text-align: center;
+}
+:active {
+  box-shadow: 0 2px 3px hsla(0, 0, 0, 0.7);
+}
+
+.button {
+  background-color: #f39c12;
+}
+/* :nth-of-type(2) {
+    background: darken(#f39c12, 5%);
+  }
+  :nth-of-type(3) {
+    background: darken(#f39c12, 10%);
+  }
+  :nth-of-type(4) {
+    background: darken(#f39c12, 15%);
+  }
+  :nth-of-type(5) {
+    background: darken(#f39c12, 20%);
+  } */
