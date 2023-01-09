@@ -5,7 +5,7 @@ import computerPlayer from "./ComputerPlayer";
 import "./GameLoop.css";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
-  //player1 and player2 have values 'yes' (human), 'no' (only for player2, if solo play for player1 and 'computer' if either player is to be a bot)
+  //player1 and player2 have values 'your_name' if a human player,  and 'computer' if either player is to be a bot
 
   const generateWall = (gridSide) => {
     let wallArray = [];
@@ -45,42 +45,42 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   const handleDirectionChange = (event) => {
     switch (event.key) {
       case "a":
-        if (direction1 !== "right" && player1 === "yes") {
+        if (direction1 !== "right" && player1 !== "computer") {
           setDirection1("left");
         }
         break;
       case "d":
-        if (direction1 !== "left" && player1 === "yes") {
+        if (direction1 !== "left" && player1 !== "computer") {
           setDirection1("right");
         }
         break;
       case "w":
-        if (direction1 !== "bottom" && player1 === "yes") {
+        if (direction1 !== "bottom" && player1 !== "computer") {
           setDirection1("top");
         }
         break;
       case "s":
-        if (direction1 !== "top" && player1 === "yes") {
+        if (direction1 !== "top" && player1 !== "computer") {
           setDirection1("bottom");
         }
         break;
       case "j":
-        if (direction2 !== "right" && player2 === "yes") {
+        if (direction2 !== "right" && player2 !== "computer") {
           setDirection2("left");
         }
         break;
       case "l":
-        if (direction2 !== "left" && player2 === "yes") {
+        if (direction2 !== "left" && player2 !== "computer") {
           setDirection2("right");
         }
         break;
       case "i":
-        if (direction2 !== "bottom" && player2 === "yes") {
+        if (direction2 !== "bottom" && player2 !== "computer") {
           setDirection2("top");
         }
         break;
       case "k":
-        if (direction2 !== "top" && player2 === "yes") {
+        if (direction2 !== "top" && player2 !== "computer") {
           setDirection2("bottom");
         }
         break;
@@ -145,11 +145,11 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
       return;
     }
     if (collisionArray.includes(cycle1LookAhead)) {
-      setGameStatus("Player 1 Died");
+      setGameStatus(`${player1} died`);
       return;
     }
     if (collisionArray.includes(cycle2LookAhead)) {
-      setGameStatus("Player 2 Died");
+      setGameStatus(`${player2} died`);
       return;
     }
   };
@@ -208,16 +208,3 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   }
 };
 export default GameLoop;
-
-//Make game setup adjustable
-//Make game 2 player
-//Add option for computer controlled players
-//Make random start positions on home wall
-//Disable players turning back on themselves
-//Make collision checker function which does something (which can be changed to end game)
-//Make the head on collision of cycles return something different
-//Add a checker for player type(computer player)
-//Disable keyboard inputs if a player is a computer
-//Build a computer move function (separate component?) run at start of each tick to see if movement needed
-
-//Look at cell component render location/board/GridMaker to make faster

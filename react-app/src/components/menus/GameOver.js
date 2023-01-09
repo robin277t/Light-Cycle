@@ -3,20 +3,20 @@ import React, { useState } from "react";
 import GameLoop from "../grid/GameLoop.js";
 
 const GameOver = ({ message }) => {
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [isGameRestart, setIsGameRestart] = useState(false);
 
   const setRestartGame = () => {
-    setIsGameOver(true);
+    setIsGameRestart(true);
   };
 
-  if (isGameOver) {
+  if (isGameRestart) {
     return (
       <GameLoop
-        gridSide={60}
-        trailLength={60}
-        gameSpeed={70}
-        player1={"yes"}
-        player2={"computer"}
+        gridSide={50}
+        trailLength={100}
+        gameSpeed={30}
+        player1={"player1"}
+        player2={"player2"}
       />
     );
   } else {

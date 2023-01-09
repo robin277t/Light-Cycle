@@ -1,16 +1,20 @@
 const computerPlayer = (direction, nextPos, collisionArray, gridSide) => {
   let computerLookAhead = nextPos;
-  let newDir = "";
+  let newDir = direction;
+  let turnOption1 = "top";
+  let turnOption2 = "bottom";
+  let tempDirChoice = "";
+  // let choiceAttempts = 0;
 
   const choiceRandomMovements = () => {
     //Set direction to random pick of 1 of the 2 available options, using setLookAhead and
     //checkLookAhead and reverting to incoming if it's a collision.
     //Run this a certain percentage of the time (make a drivable var)
     //set newDir to this or don't
+    newDir = turnOption1;
   };
 
-  const setLookAhead = () => {
-    //take direction and position and set the next cell position that will happen
+  const setLookAhead = (directionToSet) => {
     if (direction === "right") {
       computerLookAhead += 1;
     }
@@ -19,9 +23,13 @@ const computerPlayer = (direction, nextPos, collisionArray, gridSide) => {
     }
     if (direction === "top") {
       computerLookAhead += gridSide;
+      turnOption1 = "right";
+      turnOption2 = "left";
     }
     if (direction === "bottom") {
       computerLookAhead -= gridSide;
+      turnOption1 = "right";
+      turnOption2 = "left";
     }
   };
 
@@ -32,21 +40,22 @@ const computerPlayer = (direction, nextPos, collisionArray, gridSide) => {
   };
 
   const changeCycleDirIfNeeded = () => {
-    //if checkLookAhead is true, change dir to 1 of 2 available options (randomly selected), set those
-    //2 options as variables, and then setLookAhead and checkLookAhead again, if also true, run them again
-    //with the other direction option. If still getting a true then don't change dir, else set newDir
+    if (Math.random() < 0.5) {
+      tempDirChoice = turnOption1;
+    } else {
+      tempDirChoice = turnOption2;
+    }
+    choiceAttempts += 1;
+    setLookAhead(tempDirChoice);
+    checkLookAhead();
+    // if (choiceAttempts < 3) {
+    //   newDir = tempDirChoice;
+    // }
   };
 
-  // prior to loop do the random choice change, and log this so can allow doing nothing
-  // 0. set + on lookahead depending on direction
-  // 1. check if look ahead is a problem, if it is not then don't do nothing
-  // 2. if it is, do a random change on direction and repeat steps 0, 1, hopefully no longer a problem and set newDir
-  // 3. if still a problem then switch to the only other availble direction, and repeat steps 1 and 2, hopefully no longer a problem and set newDir
-  // 4. if still a problem again, then do nothing
-
   choiceRandomMovements();
-  setLookAhead();
-  checkLookAhead();
+  setLookAhead(direction);
+  checkLookAhead(computerLookAhead);
   return newDir;
 };
 
