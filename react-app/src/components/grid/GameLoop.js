@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GridMaker from "./GridMaker.js";
 import GameOver from "../menus/GameOver.js";
-import computerPlayer from "./ComputerPlayer";
+// import computerPlayer from "./ComputerPlayer";
 import "./GameLoop.css";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
@@ -173,12 +173,12 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
         checkCollision();
         createCycleTrail(1, cycle1, trail1);
         createCycleTrail(2, cycle2, trail2);
-        if (player1 === "computer") {
-          computerPlayer(direction1, cycle1LookAhead, collisionArray, gridSide);
-        }
-        if (player2 === "computer") {
-          computerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide);
-        }
+        // if (player1 === "computer") {
+        //   computerPlayer(direction1, cycle1LookAhead, collisionArray, gridSide);
+        // }
+        // if (player2 === "computer") {
+        //   computerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide);
+        // }
       }, gameSpeed);
       return () => clearInterval(gameTick);
     }
