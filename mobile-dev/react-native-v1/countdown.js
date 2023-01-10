@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 export default function Countdown(props) {
-  const [time, setTime] = React.useState(4);
+  const [time, setTime] = React.useState(props.initialValue || 3);
     console.log(time)
   const timerRef = React.useRef(time);
 
@@ -43,7 +43,6 @@ export default function Countdown(props) {
       <Text>Hey look, you can read this!</Text>
       <StatusBar style="auto" />
     </View>
-
     <View>
       <Modal
       animationType="fade"
@@ -54,17 +53,8 @@ export default function Countdown(props) {
         setModalVisible(!modalVisible)
       }}
       >
-        <Text>Hi there</Text>
-        <View style={styles.container}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}> {time} </Text>
-            <Pressable
-            style = {[styles.button, styles.buttonClose]}
-            onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>This will close in 4 seconds</Text>
-            </Pressable>
-          </View>
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}> {time} </Text>
         </View>
       </Modal>
     </View>
@@ -73,15 +63,7 @@ export default function Countdown(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#00FF00",
-    alignItems: "center",
-    justifyContent: "center",
-    color: '#FFFFFF'
-  },
-
-  container2: {
+ container2: {
     flex: 1,
     backgroundColor: "#34495e",
     alignItems: "center",
@@ -90,7 +72,7 @@ const styles = StyleSheet.create({
 
   modalView: {
     margin: 20,
-    backgroundColor: "#c5a600",
+    backgroundColor: "#009f23",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
