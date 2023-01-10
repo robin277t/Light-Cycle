@@ -18,7 +18,7 @@ export default function ModalTemplate() {
     setModalVisible(true);
     setTimeout(() => {
       setModalVisible(false);
-    }, 5000);
+    }, 2000);
   };
 
   return (
@@ -51,10 +51,10 @@ export default function ModalTemplate() {
           </View>
         </Modal>
         <TouchableOpacity onPress={() => showModal(!modalVisible)}>
-          <Image style={styles.img} source={require("./left-filled.png")} />
+          <Image style={styles.img} source={require("./img/left-filled.png")} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => showModal(!modalVisible)}>
-          <Image style={styles.img} source={require("./right-filled.png")} />
+          <Image style={styles.img} source={require("./img/right-filled.png")} />
         </TouchableOpacity>
       </View>
     </>
