@@ -35,13 +35,13 @@ export default function DPad() {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <Text style={styles.modalText}>You clicked me!</Text>
-                <Pressable
-                    style={[styles.button, styles.buttonClose]}
-                    onPress={() => setModalVisible(!modalVisible)}
-                >
-                    <Text>Hide</Text>
-                </Pressable>
+              <Text style={styles.modalText}>You clicked me!</Text>
+              <Pressable
+                style={[styles.buttonOpen, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text>Hide</Text>
+              </Pressable>
             </View>
           </View>
         </Modal>
@@ -51,7 +51,7 @@ export default function DPad() {
           style={[styles.button, styles.buttonClose]}
           onPress={() => showModal(!modalVisible)}
         >
-          <Image style={styles.img} source={require("./img/up-filled.png")} />
+          <Image style={styles.img} source={require("../img/up-filled.png")} />
         </TouchableOpacity>
       </View>
       <View style={styles.dpadmiddle}>
@@ -59,7 +59,7 @@ export default function DPad() {
           style={[styles.button, styles.buttonClose]}
           onPress={() => showModal(!modalVisible)}
         >
-          <Image style={styles.img} source={require("./img/left-filled.png")} />
+          <Image style={styles.img} source={require("../img/left-filled.png")} />
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button, styles.buttonClose]}
@@ -67,7 +67,7 @@ export default function DPad() {
         >
           <Image
             style={styles.img}
-            source={require("./img/right-filled.png")}
+            source={require("../img/right-filled.png")}
           />
         </TouchableOpacity>
       </View>
@@ -76,7 +76,7 @@ export default function DPad() {
           style={[styles.button, styles.buttonClose]}
           onPress={() => showModal(!modalVisible)}
         >
-          <Image style={styles.img} source={require("./img/down_arrow.png")} />
+          <Image style={styles.img} source={require("../img/down_arrow.png")} />
         </TouchableOpacity>
       </View>
     </>
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "#AF4f41",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -138,6 +138,13 @@ const styles = StyleSheet.create({
   },
 
   button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+
+  buttonOpen: {
+    backgroundColor: "#6273248",
     borderRadius: 20,
     padding: 10,
     elevation: 2,

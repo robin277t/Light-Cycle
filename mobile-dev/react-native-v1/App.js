@@ -1,13 +1,13 @@
-import ModalTemplate from "./modal-template";
-import DPad from "./d-pad";
-import Countdown from "./countdown";
+import DPad from "./components/d-pad";
+import Countdown from "./components/countdown";
+import GameOver from "./components/gameovermodal"
 
 export default function App() {
   return ( 
     <>
-    <ModalTemplate />
-    {/* <Countdown /> */}
+    <Countdown />
     <DPad />
+    <GameOver />
     </>
     );
 }

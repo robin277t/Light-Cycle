@@ -51,10 +51,10 @@ export default function ModalTemplate() {
           </View>
         </Modal>
         <TouchableOpacity onPress={() => showModal(!modalVisible)}>
-          <Image style={styles.img} source={require("./img/left-filled.png")} />
+          <Image style={styles.img} source={require("../img/left-filled.png")} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => showModal(!modalVisible)}>
-          <Image style={styles.img} source={require("./img/right-filled.png")} />
+          <Image style={styles.img} source={require("../img/right-filled.png")} />
         </TouchableOpacity>
       </View>
     </>
