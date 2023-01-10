@@ -11,7 +11,7 @@ function App() {
       <header className="App-headerBoilerplate">
         <a
           className="App-link"
-          href="https://www.youtube.com/watch?v=cFuRPMjYKhs&t=181s"
+          href="https://www.youtube.com/watch?v=cFuRPMjYKhs&t=23s"
           target="_blank"
           rel="noopener noreferrer"
         >

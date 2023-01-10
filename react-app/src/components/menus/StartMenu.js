@@ -12,10 +12,10 @@ const StartMenu = () => {
 
   if (menuSelect === 'none') {
     return (
-      <div classname="menu-container">
-        <h2 classname="menu-item">
+      <div className="menu-container">
+        <h2 className="menu-item">
           <body>
-            <button type="button" classname="button" onClick={() => selectMenu('multiplayer')}>
+            <button type="button" className="button" onClick={() => selectMenu('multiplayer')}>
               Multiplayer
             </button>
             {/* <button>
