@@ -2,7 +2,7 @@ import "./App.css";
 import "./index.scss";
 import "../menus/StartMenu";
 // import GameLoop from "../grid/GameLoop.js";
-import GameOver from "../menus/GameOver.js";
+// import GameOver from "../menus/GameOver.js";
 import StartMenu from "../menus/StartMenu";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Welcomet to Light Cycle is AWESOME!!! Check out a video of it here... note not actual gameplay
+          Welcome! Light Cycle is AWESOME!!! Check out a video of it here... note not actual gameplay
         </a>
       </header>
       <StartMenu />
