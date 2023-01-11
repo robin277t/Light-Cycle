@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import GridMaker from "./GridMaker.js";
-import GameOver from "../menus/GameOver.js";
+import GridMakerGame from "./GridMakerGame.js";
+// import GameOver from "../menus/GameOver.js";
 // import computerPlayer from "./ComputerPlayer";
-import "./GameLoop.css";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   //player1 and player2 have values 'your_name' if a human player,  and 'computer' if either player is to be a bot
@@ -184,27 +183,26 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
     }
   }, [cycle1, cycle2, direction1, direction2]);
 
-  if (gameStatus !== "Ongoing") {
-    return <GameOver message={gameStatus} />;
-  } else {
-    return (
-      <>
-        <input
-          className="grid-area"
-          type="text"
-          onKeyDown={handleDirectionChange}
-        />
-        <GridMaker
-          key="someKey"
-          cycle1={cycle1}
-          cycle2={cycle2}
-          gridSide={gridSide}
-          trail1={trail1}
-          trail2={trail2}
-          wall={wall}
-        />
-      </>
-    );
-  }
+  // if (gameStatus !== "Ongoing") {
+  //   return <GameOver message={gameStatus} />;
+  // } else {
+  //   return (
+  //     <>
+  //       <input
+  //         className="grid-area"
+  //         type="text"
+  //         onKeyDown={handleDirectionChange}
+  //       />
+  return (
+    <GridMakerGame
+      key="someKey"
+      cycle1={cycle1}
+      cycle2={cycle2}
+      gridSide={gridSide}
+      trail1={trail1}
+      trail2={trail2}
+      wall={wall}
+    />
+  );
 };
 export default GameLoop;

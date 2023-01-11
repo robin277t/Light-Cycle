@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
-import GridMaker from "./components/grid/GridMaker";
 import GameLoop from "./components/grid/GameLoop";
-import GridMakerGame from "./components/grid/GridMakerGame";
+import GridMakerGame from "./components/grid/GridMakerGame.js";
 
 export default function App() {
   return (

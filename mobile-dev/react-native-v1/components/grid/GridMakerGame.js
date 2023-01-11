@@ -9,8 +9,7 @@ import {
 } from "react-native";
 import { Component, useEffect, useRef, useState } from "react";
 import { GameEngine } from "react-native-game-engine";
-import Cycle1 from "./Cycle1";
-​
+
 export default function GridMakerGame({
   gridSide,
   cycle1,
@@ -24,20 +23,20 @@ export default function GridMakerGame({
   const gridPixelWidth = 320;
   const gridPixelOffset = 100; //hardcode these values at the moment to work on pretty much all devices
   const cellSize = gridPixelWidth / gridSide;
-​
+
   const backingGrid = useRef(null);
   const gridSize = gridSide * cellSize;
-​
+
   // const convertCellIdToPixelVal = (array) {
   //   array.map((val) => { return { val } })
   // }
-​
+
   let cycle1X = cycle1 % gridSide;
   let cycle1Y = (gridSide - cycle1X) / gridSide;
-​
+
   let cycle2X = cycle2 % gridSide;
   let cycle2Y = (gridSide - cycle2X) / gridSide;
-​
+
   return (
     <View style={styles.canvas}>
       <GameEngine
@@ -84,7 +83,7 @@ export default function GridMakerGame({
     </View>
   );
 }
-​
+
 const styles = StyleSheet.create({
   canvas: {
     flex: 1,
