@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-native";
 import GridMakerGame from "./GridMakerGame.js";
 // import GameOver from "../menus/GameOver.js";
 // import computerPlayer from "./ComputerPlayer";
@@ -8,7 +9,7 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
 
   const generateWall = (gridSide) => {
     let wallArray = [];
-    for (let i = 0; i <= gridSide ** 2; i++) {
+    for (let i = 0; i < gridSide ** 2; i++) {
       if (
         i < gridSide ||
         (i + 1) % gridSide === 0 ||
@@ -61,26 +62,6 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
       case "s":
         if (direction1 !== "top" && player1 !== "computer") {
           setDirection1("bottom");
-        }
-        break;
-      case "j":
-        if (direction2 !== "right" && player2 !== "computer") {
-          setDirection2("left");
-        }
-        break;
-      case "l":
-        if (direction2 !== "left" && player2 !== "computer") {
-          setDirection2("right");
-        }
-        break;
-      case "i":
-        if (direction2 !== "bottom" && player2 !== "computer") {
-          setDirection2("top");
-        }
-        break;
-      case "k":
-        if (direction2 !== "top" && player2 !== "computer") {
-          setDirection2("bottom");
         }
         break;
       default:
