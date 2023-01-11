@@ -74,7 +74,7 @@ export default function GridMakerGame({
           flex: null,
           backgroundColor: "grey",
           position: "relative",
-          top: -80,
+          top: 0,
         }}
         key={"backingGrid"}
       >
@@ -157,7 +157,7 @@ export default function GridMakerGame({
 const styles = StyleSheet.create({
   canvas: {
     flex: 1,
-    backgroundColor: "#000000",
+    // backgroundColor: "#000000",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -191,70 +191,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#c8ee2e",
     height: 5,
     width: 5,
-  },
-
-  button: {
-    borderRadius: 5,
-    padding: 8,
-    elevation: 1,
-  },
-
-  buttonOpen: {
-    backgroundColor: "#6273248",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-
-  buttonClose: {
-    backgroundColor: "#D3D3D3",
-  },
-
-  img: {
-    width: 20,
-    height: 20,
-  },
-
-  dpadtop: {
-    flex: 0,
-    alignItems: "center",
-  },
-
-  dpadmiddle: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-  },
-
-  dpadbottom: {
-    flex: 1,
-    alignItems: "center",
-  },
-
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "#AF4f41",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
   },
 });
