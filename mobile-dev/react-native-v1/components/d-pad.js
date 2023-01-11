@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 
   dpadmiddle: {
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
   },
 
