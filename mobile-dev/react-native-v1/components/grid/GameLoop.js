@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-native";
 import GridMakerGame from "./GridMakerGame.js";
 // import GameOver from "../menus/GameOver.js";
 // import computerPlayer from "./ComputerPlayer";
@@ -34,58 +35,38 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   const [cycle2, setCycle2] = useState(generateRandomStartPosition() - 2);
   const [direction1, setDirection1] = useState("right");
   const [direction2, setDirection2] = useState("left");
-  const [trail1, setTrail1] = useState(Array(trailLength).fill(-1));
-  const [trail2, setTrail2] = useState(Array(trailLength).fill(-1));
+  const [trail1, setTrail1] = useState(Array(trailLength).fill(0));
+  const [trail2, setTrail2] = useState(Array(trailLength).fill(0));
   const [cycle1LookAhead, setCycle1LookAhead] = useState(cycle1 + 1);
   const [cycle2LookAhead, setCycle2LookAhead] = useState(cycle2 - 1);
   const [gameStatus, setGameStatus] = useState("Ongoing");
   let collisionArray = [];
 
-  // const handleDirectionChange = (event) => {
-  //   switch (event.key) {
-  //     case "a":
-  //       if (direction1 !== "right" && player1 !== "computer") {
-  //         setDirection1("left");
-  //       }
-  //       break;
-  //     case "d":
-  //       if (direction1 !== "left" && player1 !== "computer") {
-  //         setDirection1("right");
-  //       }
-  //       break;
-  //     case "w":
-  //       if (direction1 !== "bottom" && player1 !== "computer") {
-  //         setDirection1("top");
-  //       }
-  //       break;
-  //     case "s":
-  //       if (direction1 !== "top" && player1 !== "computer") {
-  //         setDirection1("bottom");
-  //       }
-  //       break;
-  //     case "j":
-  //       if (direction2 !== "right" && player2 !== "computer") {
-  //         setDirection2("left");
-  //       }
-  //       break;
-  //     case "l":
-  //       if (direction2 !== "left" && player2 !== "computer") {
-  //         setDirection2("right");
-  //       }
-  //       break;
-  //     case "i":
-  //       if (direction2 !== "bottom" && player2 !== "computer") {
-  //         setDirection2("top");
-  //       }
-  //       break;
-  //     case "k":
-  //       if (direction2 !== "top" && player2 !== "computer") {
-  //         setDirection2("bottom");
-  //       }
-  //       break;
-  //     default:
-  //   }
-  // };
+  const handleDirectionChange = (event) => {
+    switch (event.key) {
+      case "a":
+        if (direction1 !== "right" && player1 !== "computer") {
+          setDirection1("left");
+        }
+        break;
+      case "d":
+        if (direction1 !== "left" && player1 !== "computer") {
+          setDirection1("right");
+        }
+        break;
+      case "w":
+        if (direction1 !== "bottom" && player1 !== "computer") {
+          setDirection1("top");
+        }
+        break;
+      case "s":
+        if (direction1 !== "top" && player1 !== "computer") {
+          setDirection1("bottom");
+        }
+        break;
+      default:
+    }
+  };
 
   const moveCycle = (playerNum, direction, position) => {
     let tempPos = position;

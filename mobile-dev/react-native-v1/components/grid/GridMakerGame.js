@@ -83,34 +83,38 @@ export default function GridMakerGame({
           );
         })}
         {coordArrayConverter(trail1).map((cell) => {
-          return (
-            <View
-              style={{
-                width: cellSize,
-                height: cellSize,
-                backgroundColor: "pink",
-                position: "absolute",
-                left: cell.x * cellSize,
-                top: cell.y * cellSize,
-              }}
-            //   key={cell.value}
-            ></View>
-          );
+          if (cell.value > 0) {
+            return (
+              <View
+                style={{
+                  width: cellSize,
+                  height: cellSize,
+                  backgroundColor: "pink",
+                  position: "absolute",
+                  left: cell.x * cellSize,
+                  top: cell.y * cellSize,
+                }}
+                key={cell.value}
+              ></View>
+            );
+          }
         })}
         {coordArrayConverter(trail2).map((cell) => {
-          return (
-            <View
-              style={{
-                width: cellSize,
-                height: cellSize,
-                backgroundColor: "yellow",
-                position: "absolute",
-                left: cell.x * cellSize,
-                top: cell.y * cellSize,
-              }}
-            //   key={cell.value}
-            ></View>
-          );
+          if (cell.value > 0) {
+            return (
+              <View
+                style={{
+                  width: cellSize,
+                  height: cellSize,
+                  backgroundColor: "yellow",
+                  position: "absolute",
+                  left: cell.x * cellSize,
+                  top: cell.y * cellSize,
+                }}
+                key={cell.value}
+              ></View>
+            );
+          }
         })}
         <View
           style={{
@@ -146,5 +150,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
 });

@@ -6,8 +6,8 @@ import GridMakerGame from "./components/grid/GridMakerGame.js";
 export default function App() {
   return (
     <GameLoop
-      gridSide={50}
-      trailLength={2}
+      gridSide={40}
+      trailLength={10}
       gameSpeed={20}
       player1={"player1"}
       player2={"player2"}
