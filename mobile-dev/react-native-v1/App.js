@@ -2,16 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import GameLoop from "./components/grid/GameLoop";
 import GridMakerGame from "./components/grid/GridMakerGame.js";
+import StartMenu from "./components/menus/StartMenu.js";
 
 export default function App() {
   return (
-    <GameLoop
-      gridSide={40}
-      trailLength={10}
-      gameSpeed={20}
-      player1={"player1"}
-      player2={"player2"}
-    />
+    <>
+      <StatusBar hidden={true}/>
+      <StartMenu />
+    </>
     // <GridMakerGame
     //   key="someKey"
     //   cycle1={17}

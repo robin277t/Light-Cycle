@@ -10,7 +10,7 @@ import {
   Pressable,
 } from "react-native";
 import GridMakerGame from "./GridMakerGame.js";
-// import GameOver from "../menus/GameOver.js";
+import GameOver from "../menus/GameOver.js";
 // import computerPlayer from "./ComputerPlayer";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
@@ -173,74 +173,82 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
     }
   }, [cycle1, cycle2, direction1, direction2]);
 
-  // if (gameStatus !== "Ongoing") {
-  //   return <GameOver message={gameStatus} />;
-  // } else {
-  //   return (
-  //     <>
-  //       <input
-  //         className="grid-area"
-  //         type="text"
-  //         onKeyDown={handleDirectionChange}
-  //       />
-
-  return (
-    <>
-      <GridMakerGame
-        key="someKey"
-        cycle1={cycle1}
-        cycle2={cycle2}
-        gridSide={gridSide}
-        trail1={trail1}
-        trail2={trail2}
-        wall={wall}
-      />
-      <View>
-      </View>
-      <View style={styles.dpadtop}>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonClose]}
-          onPress={() => setDirection1("top")}
-        >
-          <Image
-            style={styles.img}
-            source={require("../../img/up-filled.png")}
-          />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.dpadmiddle}>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonClose]}
-          onPress={() => setDirection1("left")}
-        >
-          <Image
-            style={styles.img}
-            source={require("../../img/left-filled.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonClose]}
-          onPress={() => setDirection1("right")}
-        >
-          <Image
-            style={styles.img}
-            source={require("../../img/right-filled.png")}
-          />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.dpadbottom}>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonClose]}
-          onPress={() => setDirection1("bottom")}
-        >
-          <Image
-            style={styles.img}
-            source={require("../../img/down_arrow.png")}
-          />
-        </TouchableOpacity>
-      </View>
-    </>
-  );
+  if (gameStatus !== "Ongoing") {
+    return <GameOver message={gameStatus} />;
+  } else {
+    return (
+      <>
+        <GridMakerGame
+          key="someKey"
+          cycle1={cycle1}
+          cycle2={cycle2}
+          gridSide={gridSide}
+          trail1={trail1}
+          trail2={trail2}
+          wall={wall}
+        />
+        <View></View>
+        <View style={styles.dpadtop}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "bottom") {
+                setDirection1("top");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/up-filled.png")}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.dpadmiddle}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "right") {
+                setDirection1("left");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/left-filled.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "left") {
+                setDirection1("right");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/right-filled.png")}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.dpadbottom}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "top") {
+                setDirection1("bottom");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/down_arrow.png")}
+            />
+          </TouchableOpacity>
+        </View>
+      </>
+    );
+  }
 };
 export default GameLoop;
 
