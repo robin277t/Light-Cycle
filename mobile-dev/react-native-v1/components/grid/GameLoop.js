@@ -175,15 +175,84 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   //         onKeyDown={handleDirectionChange}
   //       />
   return (
-    <GridMakerGame
-      key="someKey"
-      cycle1={cycle1}
-      cycle2={cycle2}
-      gridSide={gridSide}
-      trail1={trail1}
-      trail2={trail2}
-      wall={wall}
-    />
+    <>
+      <View>
+        <GridMakerGame
+          key="someKey"
+          cycle1={cycle1}
+          cycle2={cycle2}
+          gridSide={gridSide}
+          trail1={trail1}
+          trail2={trail2}
+          wall={wall}
+        />
+      </View>
+      <View>
+        <Modal
+          animationType="none"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>You clicked me!</Text>
+              <Pressable
+                style={[styles.buttonOpen, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text>Hide</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+      </View>
+      <View style={styles.dpadtop}>
+        <TouchableOpacity
+          style={[styles.button, styles.buttonClose]}
+          onPress={() => showModal(!modalVisible)}
+        >
+          <Image
+            style={styles.img}
+            source={require("../../img/up-filled.png")}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.dpadmiddle}>
+        <TouchableOpacity
+          style={[styles.button, styles.buttonClose]}
+          onPress={() => showModal(!modalVisible)}
+        >
+          <Image
+            style={styles.img}
+            source={require("../../img/left-filled.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, styles.buttonClose]}
+          onPress={() => showModal(!modalVisible)}
+        >
+          <Image
+            style={styles.img}
+            source={require("../../img/right-filled.png")}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.dpadbottom}>
+        <TouchableOpacity
+          style={[styles.button, styles.buttonClose]}
+          onPress={() => showModal(!modalVisible)}
+        >
+          <Image
+            style={styles.img}
+            source={require("../../img/down_arrow.png")}
+          />
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
 export default GameLoop;
