@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Component, useEffect, useRef, useState } from "react";
 import { GameEngine } from "react-native-game-engine";
+import { array } from "prop-types";
 
 export default function GridMakerGame({
   gridSide,
@@ -20,8 +21,7 @@ export default function GridMakerGame({
 }) {
   const MAX_WIDTH = Dimensions.get("screen").width;
   const MAX_HEIGHT = Dimensions.get("screen").height; //These could be important for full width screen rendering
-  const gridPixelWidth = 320;
-  const gridPixelOffset = 100; //hardcode these values at the moment to work on pretty much all devices
+  const gridPixelWidth = MAX_WIDTH;
   const cellSize = gridPixelWidth / gridSide;
 
   const backingGrid = useRef(null);
@@ -31,11 +31,12 @@ export default function GridMakerGame({
   //   array.map((val) => { return { val } })
   // }
 
-  let cycle1X = cycle1 % gridSide;
-  let cycle1Y = (gridSide - cycle1X) / gridSide;
+  //   const wall2 = wall.map(() => {
+  //     return { x: 4, y: 6 };
+  //   });
 
-  let cycle2X = cycle2 % gridSide;
-  let cycle2Y = (gridSide - cycle2X) / gridSide;
+  let x = 19;
+  let y = 19;
 
   return (
     <View style={styles.canvas}>
@@ -47,11 +48,11 @@ export default function GridMakerGame({
           flex: null,
           backgroundColor: "grey",
           position: "relative",
-          top: -50,
+          top: -100,
         }}
         key={"backingGrid"}
       >
-        {wall.map((value) => {
+        {wall2.map((value) => {
           if (value < 2) {
             return (
               <View
@@ -60,8 +61,8 @@ export default function GridMakerGame({
                   height: cellSize,
                   backgroundColor: "pink",
                   position: "absolute",
-                  left: gridPixelWidth - cellSize,
-                  top: 0,
+                  left: value.x * cellSize,
+                  top: value.y * cellSize,
                 }}
                 key={value}
               ></View>
