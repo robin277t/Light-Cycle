@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Component, useEffect, useRef, useState } from "react";
 import { GameEngine } from "react-native-game-engine";
+import { array } from "prop-types";
 
 export default function GridMakerGame({
   gridSide,
@@ -20,22 +21,37 @@ export default function GridMakerGame({
 }) {
   const MAX_WIDTH = Dimensions.get("screen").width;
   const MAX_HEIGHT = Dimensions.get("screen").height; //These could be important for full width screen rendering
-  const gridPixelWidth = 320;
-  const gridPixelOffset = 100; //hardcode these values at the moment to work on pretty much all devices
+  const gridPixelWidth = MAX_WIDTH;
   const cellSize = gridPixelWidth / gridSide;
 
   const backingGrid = useRef(null);
   const gridSize = gridSide * cellSize;
 
-  // const convertCellIdToPixelVal = (array) {
-  //   array.map((val) => { return { val } })
-  // }
+  const coordConverter = (loc) => {
+    let tempX = 0;
+    let tempY = 0;
+    if (loc < gridSide) {
+      tempX = loc;
+    } else {
+      tempX = loc % gridSide;
+      tempY = (loc - tempX) / gridSide;
+    }
+    return { value: loc, x: tempX, y: tempY };
+  };
 
-  let cycle1X = cycle1 % gridSide;
-  let cycle1Y = (gridSide - cycle1X) / gridSide;
-
-  let cycle2X = cycle2 % gridSide;
-  let cycle2Y = (gridSide - cycle2X) / gridSide;
+  const coordArrayConverter = (array) => {
+    return array.map((value) => {
+      let tempX = 0;
+      let tempY = 0;
+      if (value < gridSide) {
+        tempX = value;
+      } else {
+        tempX = value % gridSide;
+        tempY = (value - tempX) / gridSide;
+      }
+      return { value: value, x: tempX, y: tempY };
+    });
+  };
 
   return (
     <View style={styles.canvas}>
@@ -47,12 +63,27 @@ export default function GridMakerGame({
           flex: null,
           backgroundColor: "grey",
           position: "relative",
-          top: -50,
+          top: -80,
         }}
         key={"backingGrid"}
       >
-        {wall.map((value) => {
-          if (value < 2) {
+        {coordArrayConverter(wall).map((cell) => {
+          return (
+            <View
+              style={{
+                width: cellSize,
+                height: cellSize,
+                backgroundColor: "brown",
+                position: "absolute",
+                left: cell.x * cellSize,
+                top: cell.y * cellSize,
+              }}
+              key={cell.value}
+            ></View>
+          );
+        })}
+        {coordArrayConverter(trail1).map((cell) => {
+          if (cell.value > 0) {
             return (
               <View
                 style={{
@@ -60,10 +91,27 @@ export default function GridMakerGame({
                   height: cellSize,
                   backgroundColor: "pink",
                   position: "absolute",
-                  left: gridPixelWidth - cellSize,
-                  top: 0,
+                  left: cell.x * cellSize,
+                  top: cell.y * cellSize,
                 }}
-                key={value}
+                key={cell.value}
+              ></View>
+            );
+          }
+        })}
+        {coordArrayConverter(trail2).map((cell) => {
+          if (cell.value > 0) {
+            return (
+              <View
+                style={{
+                  width: cellSize,
+                  height: cellSize,
+                  backgroundColor: "yellow",
+                  position: "absolute",
+                  left: cell.x * cellSize,
+                  top: cell.y * cellSize,
+                }}
+                key={cell.value}
               ></View>
             );
           }
@@ -73,11 +121,22 @@ export default function GridMakerGame({
             width: cellSize,
             height: cellSize,
             backgroundColor: "red",
-            position: "relative",
-            left: 0,
-            top: 0,
+            position: "absolute",
+            left: coordConverter(cycle1).x * cellSize,
+            top: coordConverter(cycle1).y * cellSize,
           }}
-          key={"red"}
+          key={"cycle1"}
+        ></View>
+        <View
+          style={{
+            width: cellSize,
+            height: cellSize,
+            backgroundColor: "green",
+            position: "absolute",
+            left: coordConverter(cycle2).x * cellSize,
+            top: coordConverter(cycle2).y * cellSize,
+          }}
+          key={"cycle2"}
         ></View>
       </GameEngine>
     </View>
@@ -90,35 +149,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
     alignItems: "center",
     justifyContent: "center",
-  },
-  cell: {
-    backgroundColor: "#282c34",
-    height: 5,
-    width: 5,
-  },
-  head1: {
-    backgroundColor: "#8a2be2",
-    height: 5,
-    width: 5,
-  },
-  head2: {
-    backgroundColor: "#04722e",
-    height: 5,
-    width: 5,
-  },
-  wall: {
-    backgroundColor: "#00ffff",
-    height: 5,
-    width: 5,
-  },
-  trail1: {
-    backgroundColor: "#ff0000",
-    height: 5,
-    width: 5,
-  },
-  trail2: {
-    backgroundColor: "#c8ee2e",
-    height: 5,
-    width: 5,
   },
 });
