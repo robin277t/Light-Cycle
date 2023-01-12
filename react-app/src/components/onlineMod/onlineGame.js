@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./online.css";
 import Cell from "../grid/Cell";
 
-const OnlineGame = ({ bufer, controller }) => {
+const OnlineGame = ({ bufer, controller, isWait }) => {
   const gridColumns = "auto ".repeat(Math.sqrt(bufer.data.length));
   const gridStyle = { gridTemplateColumns: gridColumns };
 
@@ -29,12 +29,16 @@ const OnlineGame = ({ bufer, controller }) => {
   if (bufer.action === "TIMER") {
     return (
       <p className="timer">
-        {bufer.action === "TIMER" ? bufer.data : "Wait another player"}
+        {bufer.action === "TIMER" || isWait
+          ? bufer.data
+          : "Wait another player"}
       </p>
     );
   } else {
     return (
       <>
+        {isWait ? <div className="game-message">{bufer.data}</div> : <p>111</p>}
+
         <input
           className="grid-area-online"
           type="text"
