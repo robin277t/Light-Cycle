@@ -12,7 +12,7 @@ export default function ComputerPlayer(
   let turnOption2 = "bottom";
   let tempDirChoice = "";
   let choiceAttempts = 0;
-  const lookAheadValue = 1;
+  const lookAheadValue = 2;
 
   const choiceRandomMovements = () => {
     //Set direction to random pick of 1 of the 2 available options, using setLookAhead and
@@ -23,8 +23,8 @@ export default function ComputerPlayer(
   };
 
   const setLookAhead = (directionToSet) => {
-    console.log("set look ahead being called");
-    console.log(directionToSet);
+    // console.log("set look ahead being called");
+    // console.log(directionToSet);
 
     if (directionToSet === "right") {
       computerLookAhead += lookAheadValue;
@@ -59,11 +59,10 @@ export default function ComputerPlayer(
       } else {
         tempDirChoice = turnOption2;
       }
-        newDir = tempDirChoice
+      newDir = tempDirChoice;
 
-        console.log(`changeCycleDirIfNeeded called ${choiceAttempts}x times `);
-        console.log(newDir);
-        
+      // console.log(`changeCycleDirIfNeeded called ${choiceAttempts}x times `);
+      // console.log(newDir);
     }
     // if (choiceAttempts === 1) {
     //   if (tempDirChoice === turnOption1) {
@@ -77,7 +76,6 @@ export default function ComputerPlayer(
     // choiceAttempts += 1;
     //   console.log(choiceAttempts);
     //   console.log(turnOption1);
-      
 
     // // if (choiceAttempts < 3) {
     // //   setLookAhead(tempDirChoice);
@@ -91,5 +89,6 @@ export default function ComputerPlayer(
   // choiceRandomMovements();
   setLookAhead(direction);
   checkLookAhead(computerLookAhead);
+
   return newDir;
 }

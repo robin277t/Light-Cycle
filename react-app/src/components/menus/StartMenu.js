@@ -59,9 +59,9 @@ const StartMenu = () => {
   } else if (menuSelect === "offline") {
     return (
       <GameLoop
-        gridSide={10}
+        gridSide={50}
         trailLength={10}
-        gameSpeed={300}
+        gameSpeed={100}
         player1={"player1"}
         player2={"computer"}
       />

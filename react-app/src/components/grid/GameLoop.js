@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { flush-sync } from "react-dom"
 import GridMaker from "./GridMaker.js";
 import GridMakerVerGame from "./GridMakerVerGame.js";
 import GameOver from "../menus/GameOver.js";
@@ -136,6 +137,18 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
     }
   };
 
+  const updateCompDirection = () => {
+    console.log(direction2);
+
+    setDirection2(
+      ComputerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide)
+    );
+    console.log(
+      ComputerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide)
+    );
+    console.log(direction2);
+  };
+
   const checkCollision = () => {
     collisionArray = wall.concat(trail1, trail2);
     if (
@@ -169,17 +182,19 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   useEffect(() => {
     if (gameStatus === "Ongoing") {
       const gameTick = setInterval(() => {
+console.log(cycle1);
+
         moveCycle(1, direction1, cycle1);
+console.log(cycle1);
+
         moveCycle(2, direction2, cycle2);
         createCycleTrail(1, cycle1, trail1);
         createCycleTrail(2, cycle2, trail2);
         checkCollision();
+
         if (player2 === "computer") {
-          ComputerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide);
+          updateCompDirection();
         }
-        // if (player1 === "computer") {
-        //   ComputerPlayer(direction1, cycle1LookAhead, collisionArray, gridSide);
-        // }
       }, gameSpeed);
       return () => clearInterval(gameTick);
     }
