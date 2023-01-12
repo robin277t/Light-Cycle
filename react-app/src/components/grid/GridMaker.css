@@ -1,3 +1,5 @@
 .grid {
   display: inline-grid;
+  height: 80vh;
+  width: 80vh;
 }

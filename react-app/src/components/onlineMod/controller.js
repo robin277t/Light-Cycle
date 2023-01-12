@@ -23,7 +23,7 @@ class Controller {
             }
             this.callback({
               action: 'GRID',
-              data: board.join('\n')
+              data: parseMessage.data
             })
           break;
 

@@ -12,6 +12,7 @@ const GridMaker = ({gridSide, cycle1, cycle2, trail1, trail2, wall}) => {
   }
 
   return (
+    
     <div className="grid" style={gridStyle}>
       {generationArray.map((value) => {
         let isWall = wall.includes(value);
@@ -19,7 +20,6 @@ const GridMaker = ({gridSide, cycle1, cycle2, trail1, trail2, wall}) => {
         let isHead2 = (cycle2 === value)
         let isTrail1 = trail1.includes(value);
         let isTrail2 = trail2.includes(value);
-
 
         return (
           <div

@@ -2,9 +2,11 @@
     background-color: #282c34;
     /* border: 1px solid lightcyan; */
     color: white;
-    height: 10px;
-    width: 10px;
+    /* height: 100%;
+    width: 100%; */
+    /* //should = 100% */
     text-align: center;
+    display: inline-flex;
 }
 .head1 {
     background-color: blueviolet;

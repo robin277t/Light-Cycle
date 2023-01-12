@@ -58,13 +58,13 @@ const StartMenu = () => {
     );
   } else if (menuSelect == "online") {
     return (
-      <div>
+      <>
         <OnlineMenu />
-      </div>
+      </>
     );
   } else if (menuSelect == "host_game") {
     return (
-      <div>
+      <>
         <h1>This is HOST menu</h1>
         <button
           type="button"
@@ -73,7 +73,7 @@ const StartMenu = () => {
         >
           Start Game
         </button>
-      </div>
+      </>
     );
   } else {
     return (

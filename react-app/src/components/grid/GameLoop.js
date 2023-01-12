@@ -194,8 +194,9 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
           className="grid-area"
           type="text"
           onKeyDown={handleDirectionChange}
+          autoFocus
         />
-        <GridMakerVerGame
+        <GridMaker
           key="someKey"
           cycle1={cycle1}
           cycle2={cycle2}

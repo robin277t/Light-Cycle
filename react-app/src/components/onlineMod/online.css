@@ -1,9 +1,10 @@
-.game-grid {
+.game-grid-online {
   background-color: aliceblue;
-  height: 500px;
+  height: 100%;
+  width: 100%;
 }
 
-.grid-area {
+.grid-area-online {
   position: absolute;
   width: 100%;
   height: 100%;
