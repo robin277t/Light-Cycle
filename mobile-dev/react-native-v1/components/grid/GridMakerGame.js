@@ -55,6 +55,14 @@ export default function GridMakerGame({
     });
   };
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const showModal = () => {
+    setModalVisible(true);
+    setTimeout(() => {
+      setModalVisible(false);
+    }, 1000);
+  };
 
   return (
     <View style={styles.canvas}>

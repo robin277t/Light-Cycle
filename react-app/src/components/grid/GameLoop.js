@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import GridMaker from "./GridMaker.js";
-import GridMakerVerGame from "./GridMakerVerGame.js";
 import GameOver from "../menus/GameOver.js";
 // import computerPlayer from "./ComputerPlayer";
 import "./GameLoop.css";
@@ -195,7 +194,7 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
           type="text"
           onKeyDown={handleDirectionChange}
         />
-        <GridMakerVerGame
+        <GridMaker
           key="someKey"
           cycle1={cycle1}
           cycle2={cycle2}
