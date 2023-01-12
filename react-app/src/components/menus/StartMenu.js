@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../app/index.scss";
-import "../app/App.css";
+// import "../app/index.scss";
+// import "../app/App.css";
 import GameLoop from "../grid/GameLoop.js";
 
 const StartMenu = () => {
@@ -13,9 +13,8 @@ const StartMenu = () => {
   if (menuSelect === 'none') {
     return (
       <div classname="menu-container">
-        <h2 classname="menu-item">
-          <body>
-            
+        <h2 className="menu-item">
+          <body>  
           <button type="button" classname="button" onClick={() => selectMenu('offline')}>
               Player VS Ai
             </button>
@@ -71,7 +70,7 @@ const StartMenu = () => {
       <GameLoop
         gridSide={50}
         trailLength={100}
-        gameSpeed={30}
+        gameSpeed={200}
         player1={"player1"}
         player2={"player2"}
       />

@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
-import GridMaker from "./GridMaker.js";
-import GridMakerVerGame from "./GridMakerVerGame.js";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Alert,
+  Modal,
+  Pressable,
+} from "react-native";
+import GridMakerGame from "./GridMakerGame.js";
 import GameOver from "../menus/GameOver.js";
 // import computerPlayer from "./ComputerPlayer";
-import "./GameLoop.css";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   //player1 and player2 have values 'your_name' if a human player,  and 'computer' if either player is to be a bot
 
   const generateWall = (gridSide) => {
     let wallArray = [];
-    for (let i = 0; i <= gridSide ** 2; i++) {
+    for (let i = 0; i < gridSide ** 2; i++) {
       if (
         i < gridSide ||
         (i + 1) % gridSide === 0 ||
@@ -43,51 +51,31 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   const [gameStatus, setGameStatus] = useState("Ongoing");
   let collisionArray = [];
 
-  const handleDirectionChange = (event) => {
-    switch (event.key) {
-      case "a":
-        if (direction1 !== "right" && player1 !== "computer") {
-          setDirection1("left");
-        }
-        break;
-      case "d":
-        if (direction1 !== "left" && player1 !== "computer") {
-          setDirection1("right");
-        }
-        break;
-      case "w":
-        if (direction1 !== "bottom" && player1 !== "computer") {
-          setDirection1("top");
-        }
-        break;
-      case "s":
-        if (direction1 !== "top" && player1 !== "computer") {
-          setDirection1("bottom");
-        }
-        break;
-      case "j":
-        if (direction2 !== "right" && player2 !== "computer") {
-          setDirection2("left");
-        }
-        break;
-      case "l":
-        if (direction2 !== "left" && player2 !== "computer") {
-          setDirection2("right");
-        }
-        break;
-      case "i":
-        if (direction2 !== "bottom" && player2 !== "computer") {
-          setDirection2("top");
-        }
-        break;
-      case "k":
-        if (direction2 !== "top" && player2 !== "computer") {
-          setDirection2("bottom");
-        }
-        break;
-      default:
-    }
-  };
+  // const handleDirectionChange = (event) => {
+  //   switch (event.key) {
+  //     case "a":
+  //       if (direction1 !== "right" && player1 !== "computer") {
+  //         setDirection1("left");
+  //       }
+  //       break;
+  //     case "d":
+  //       if (direction1 !== "left" && player1 !== "computer") {
+  //         setDirection1("right");
+  //       }
+  //       break;
+  //     case "w":
+  //       if (direction1 !== "bottom" && player1 !== "computer") {
+  //         setDirection1("top");
+  //       }
+  //       break;
+  //     case "s":
+  //       if (direction1 !== "top" && player1 !== "computer") {
+  //         setDirection1("bottom");
+  //       }
+  //       break;
+  //     default:
+  //   }
+  // };
 
   const moveCycle = (playerNum, direction, position) => {
     let tempPos = position;
@@ -190,12 +178,7 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   } else {
     return (
       <>
-        <input
-          className="grid-area"
-          type="text"
-          onKeyDown={handleDirectionChange}
-        />
-        <GridMakerVerGame
+        <GridMakerGame
           key="someKey"
           cycle1={cycle1}
           cycle2={cycle2}
@@ -204,8 +187,143 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
           trail2={trail2}
           wall={wall}
         />
+        <View></View>
+        <View style={styles.dpadtop}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "bottom") {
+                setDirection1("top");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/up-filled.png")}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.dpadmiddle}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "right") {
+                setDirection1("left");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/left-filled.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "left") {
+                setDirection1("right");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/right-filled.png")}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.dpadbottom}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => {
+              if (direction1 !== "top") {
+                setDirection1("bottom");
+              }
+            }}
+          >
+            <Image
+              style={styles.img}
+              source={require("../../img/down_arrow.png")}
+            />
+          </TouchableOpacity>
+        </View>
       </>
     );
   }
 };
 export default GameLoop;
+
+const styles = StyleSheet.create({
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+
+  buttonClose: {
+    backgroundColor: "#D3D3D3",
+  },
+
+  img: {
+    width: 30,
+    height: 30,
+  },
+
+  dpadtop: {
+    flex: 0,
+    alignItems: "center",
+    top: -10,
+  },
+
+  dpadmiddle: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    top: -10,
+  },
+
+  dpadbottom: {
+    flex: 0,
+    top: -10,
+    alignItems: "center",
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "#AF4f41",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+
+  buttonOpen: {
+    backgroundColor: "#6273248",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+});
