@@ -84,5 +84,9 @@ class Controller {
     this.myWs.send(JSON.stringify({action: 'GAME_DIRECTION', data: direction}))
   }
 
+  wsQuickGame = () => {
+    this.myWs.send(JSON.stringify({action: 'GAME_QUICK'}))
+}
+
 }
 export default Controller;

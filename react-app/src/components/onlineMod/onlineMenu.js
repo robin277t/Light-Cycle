@@ -18,6 +18,13 @@ const OnlineMenu = () => {
     }
   }, [bufer]);
 
+  const quickGame = () => {
+    if (controller != null) {
+      controller.wsQuickGame();
+      setGameOn(true)
+    }
+  }
+
   const createGame = () => {
     if (controller != null) {
       controller.wsNewGame();
@@ -34,7 +41,7 @@ const OnlineMenu = () => {
       ) : (
         <div>
           <h1>This is online menu</h1>
-          <button type="button" className="button" onClick={setGameOn(true)}>
+          <button type="button" className="button" onClick={quickGame}>
             Quick game
           </button>
 

@@ -43,8 +43,13 @@ const StartMenu = () => {
             {/* <button>
             <a href='/Multiplayer'>Multiplayer</a>
           </button>
-          <button>
-            <a href='/Options'>Options</a>
+
+          <button
+            type="button"
+            className="button"
+            onClick={() => selectMenu("online")}
+          >
+            Online
           </button>
           <button>
             <a href='/Leaderboard'>Leaderboard</a>
@@ -65,7 +70,7 @@ const StartMenu = () => {
         <h1>This is HOST menu</h1>
         <button
           type="button"
-          classname="button"
+          className="button"
           onClick={() => selectMenu("Start_online_game")}
         >
           Start Game
