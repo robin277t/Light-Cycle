@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-// import "../app/index.scss";
-// import "../app/App.css";
+
+import "../app/App.css";
+
 import GameLoop from "../grid/GameLoop.js";
 import OnlineMenu from "../onlineMod/onlineMenu";
 
@@ -13,22 +14,34 @@ const StartMenu = () => {
 
   if (menuSelect === "none") {
     return (
-      <div className="menu-container">
-        <div className="menu-item">
-          <button
-            type="button"
-            className="button"
-            onClick={() => selectMenu("offline")}
-          >
-            Player VS Ai
-          </button>
+      <div classname="menu-container">
+        <h1 className="menu-item">
+          <body>
+            <button
+              type="button"
+              classname="button"
+              onClick={() => selectMenu("offline")}
+            >
+              Player VS Ai
+            </button>
 
-          <button
-            type="button"
-            className="button"
-            onClick={() => selectMenu("multiplayer")}
-          >
-            Player VS Player
+            <button
+              type="button"
+              classname="button"
+              onClick={() => selectMenu("multiplayer")}
+            >
+              Player VS Player
+            </button>
+
+            <button
+              type="button"
+              classname="button"
+              onClick={() => selectMenu("online")}
+            >
+              Online
+            </button>
+            {/* <button>
+            <a href='/Multiplayer'>Multiplayer</a>
           </button>
 
           <button
@@ -38,7 +51,11 @@ const StartMenu = () => {
           >
             Online
           </button>
-        </div>
+          <button>
+            <a href='/Leaderboard'>Leaderboard</a>
+          </button> */}
+          </body>
+        </h1>
       </div>
     );
   } else if (menuSelect == "online") {

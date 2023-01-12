@@ -1,5 +1,6 @@
-// import "./App.css";
-// import "./index.scss";
+
+import "./App.css";
+
 import "../menus/StartMenu";
 import GameLoop from "../grid/GameLoop.js";
 import GameOver from "../menus/GameOver.js";
