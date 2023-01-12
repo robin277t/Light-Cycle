@@ -14,9 +14,9 @@ const GameOver = ({ message }) => {
   if (gameRestart === 'yes') {
     return (
       <GameLoop
-        gridSide={50}
-        trailLength={100}
-        gameSpeed={30}
+        gridSide={200}
+        trailLength={1000}
+        gameSpeed={20}
         player1={"player1"}
         player2={"player2"}
       />
