@@ -1,11 +1,34 @@
-html,
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+@keyframes in  {
+	from { transform: rotateX(60deg); }
+	to { transform: rotateX(0deg); }
+}
+
+@keyframes out {
+	from { transform: rotateX(0deg); }
+	to { transform: rotateX(60deg); }
+}
+
+@keyframes scale {
+	from { transform: scale(3,3); }
+	to { transform: scale(1,1); }
+}
+
+@keyframes slide {
+	from { height: 0px; }
+  to { height: 600px; }
+}
+
 body {
-  background: radial-gradient(bg 0, darken(bg, 15%) 100%);
+  background: rgb(0, 0, 0);
   min-height: 100vh;
-  font-family: font, sans-serif;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 50px;
   padding: 0;
   margin: 0;
 }
+
 
 .App {
   text-align: center;
@@ -27,8 +50,9 @@ body {
 }
 
 .menu-container {
-  box-shadow: 0 0px 50px hsla(0, 0, 0, 0.7);
+  box-shadow: 0 0px 50px rgba(0, 0, 0, 0.7);
   position: relative;
+  align-items: center;
   transform: translate(0);
   margin: 0 auto;
   width: 350px;
@@ -49,20 +73,83 @@ body {
   box-shadow: 0 2px 3px hsla(0, 0, 0, 0.7);
 }
 
-button {
-  background-color: #f39c12;
-  border-radius: 5px;
-  margin: 5px;
+
+div
+{
+  padding:100px;
+  animation: slide 1s linear;
+  overflow:hidden;
+  height:600px;
 }
-/* :nth-of-type(2) {
-    background: darken(#f39c12, 5%);
-  }
-  :nth-of-type(3) {
-    background: darken(#f39c12, 10%);
-  }
-  :nth-of-type(4) {
-    background: darken(#f39c12, 15%);
-  }
-  :nth-of-type(5) {
-    background: darken(#f39c12, 20%);
-  } */
+
+html
+{
+  background:black;
+  color:#00AAFF;
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+button
+{
+  font-size:30px;
+  border: 3px solid;
+  line-height:90px;
+  transform: rotateX(60deg);
+  -webkit-text-fill-color: #61dafb;
+  font-family: 'Orbitron', sans-serif;
+  border-color: #61dafb;
+  width:100%;
+  border-radius:4px;
+  text-align:center;
+  animation: out 0.5s linear;
+  background-color:black;
+  margin-top:-20px;
+  position:relative;
+}
+
+button:hover
+{
+  transform: rotateX(0deg);
+  animation: in  0.5s  linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+button {
+  background:yellow;
+  box-shadow:10px 10px 0 rgba(0,0,0,.5);
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 14em;
+  font-size:2em;
+  font-family: 'Orbitron', sans-serif;
+  padding:.5em 2em;
+  text-decoration:none;
+  transform: skew(-20deg);
+
+}
+
+button:hover {
+
+  box-shadow: 0 0 0 ;
+}
+*/

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-// import "../app/index.scss";
-// import "../app/App.css";
+
+import "../app/App.css";
+
 import GameLoop from "../grid/GameLoop.js";
 import OnlineMenu from "../onlineMod/onlineMenu";
 
@@ -14,6 +15,8 @@ const StartMenu = () => {
   if (menuSelect === 'none') {
     return (
       <div classname="menu-container">
+
+
         <h2 className="menu-item">
           <body>  
           <button type="button" classname="button" onClick={() => selectMenu('offline')}>
@@ -37,7 +40,7 @@ const StartMenu = () => {
             <a href='/Leaderboard'>Leaderboard</a>
           </button> */}
           </body>
-        </h2>
+        </h1>
       </div>
     );
   }else if(menuSelect == 'online'){
