@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+
 import "../app/App.css";
+
 import GameLoop from "../grid/GameLoop.js";
+import OnlineMenu from "../onlineMod/onlineMenu";
 
 const StartMenu = () => {
   const [menuSelect, setMenuSelect] = useState('none');
@@ -12,10 +15,11 @@ const StartMenu = () => {
   if (menuSelect === 'none') {
     return (
       <div classname="menu-container">
-        <h1 classname="menu-item">
-          <body>
-            
-          <button type="button" classname="button, parallelogram" onClick={() => selectMenu('offline')}>
+
+
+        <h2 className="menu-item">
+          <body>  
+          <button type="button" classname="button" onClick={() => selectMenu('offline')}>
               Player VS Ai
             </button>
 
@@ -41,17 +45,9 @@ const StartMenu = () => {
     );
   }else if(menuSelect == 'online'){
     return(<div>
-    <h1>This is online menu</h1>
-    <button type="button" classname="button" onClick={() => selectMenu('host_game')}>
-              Host Game
-            </button>
-    <button type="button" classname="button" onClick={() => selectMenu('join_game')}>
-               Join Game
-            </button>
-    <button type="button" classname="button" onClick={() => selectMenu('none')}>
-               Return
-            </button>
-    </div>);
+      <OnlineMenu />
+      </div>
+    );
 
    
   } else if(menuSelect == 'host_game'){
@@ -70,7 +66,7 @@ const StartMenu = () => {
       <GameLoop
         gridSide={50}
         trailLength={100}
-        gameSpeed={30}
+        gameSpeed={200}
         player1={"player1"}
         player2={"player2"}
       />
