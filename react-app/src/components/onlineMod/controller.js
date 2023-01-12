@@ -23,7 +23,7 @@ class Controller {
             }
             this.callback({
               action: 'GRID',
-              data: board.join('\n')
+              data: parseMessage.data
             })
           break;
 
@@ -51,7 +51,7 @@ class Controller {
     this.myWs.send(JSON.stringify({action: 'USERS'}));
   }
 
-  wsNewGame = (gridSide = 15, trailLength = 7, gameSpeed = 800) => {
+  wsNewGame = (gridSide = 50, trailLength = 100, gameSpeed = 40) => {
     const gameSetup = {
         gridSide,
         trailLength,

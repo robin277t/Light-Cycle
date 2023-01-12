@@ -3,8 +3,8 @@
 }
 
 .GameOver-header {
-  background-color: #0c52df;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +21,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(14, 13, 13);
+}
+
+.menu-item {
+  margin-top: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  justify-items: center;
+  position: relative;
+  font-size: 24px;
+  width: 600px;
+  justify-content: center;
+  letter-spacing: 4px;
+  text-align: center;
 }
 
 

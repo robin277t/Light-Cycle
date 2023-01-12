@@ -14,7 +14,6 @@ const StartMenu = () => {
 
   if (menuSelect === "none") {
     return (
-      <div className="menu-container">
         <div className="menu-item">
             <button
               type="button"
@@ -39,32 +38,17 @@ const StartMenu = () => {
             >
               Online
             </button>
-            {/* <button>
-            <a href='/Multiplayer'>Multiplayer</a>
-          </button>
-
-          <button
-            type="button"
-            className="button"
-            onClick={() => selectMenu("online")}
-          >
-            Online
-          </button>
-          <button>
-            <a href='/Leaderboard'>Leaderboard</a>
-          </button> */}
         </div>
-      </div>
     );
   } else if (menuSelect == "online") {
     return (
-      <div>
+      <>
         <OnlineMenu />
-      </div>
+      </>
     );
   } else if (menuSelect == "host_game") {
     return (
-      <div>
+      <>
         <h1>This is HOST menu</h1>
         <button
           type="button"
@@ -73,14 +57,14 @@ const StartMenu = () => {
         >
           Start Game
         </button>
-      </div>
+      </>
     );
   } else {
     return (
       <GameLoop
         gridSide={50}
         trailLength={100}
-        gameSpeed={200}
+        gameSpeed={40}
         player1={"player1"}
         player2={"player2"}
       />

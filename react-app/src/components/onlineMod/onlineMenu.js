@@ -6,6 +6,7 @@ const OnlineMenu = () => {
   const [bufer, setBufer] = useState("");
   const [gameOn, setGameOn] = useState(false);
   const [controller, setController] = useState(new WSController(setBufer));
+  const [isWait, setIsWait] = useState(false);
 
   useEffect(() => {
     controller.wsConnect();
@@ -14,6 +15,7 @@ const OnlineMenu = () => {
   useEffect(() => {
     if (bufer.action === "GRID") {
       setGameOn(true);
+      setIsWait(false);
       console.log(bufer);
     }
   }, [bufer]);
@@ -28,15 +30,26 @@ const OnlineMenu = () => {
   const createGame = () => {
     if (controller != null) {
       controller.wsNewGame();
-      controller.wsGameGrid();
+      setIsWait(true);
+      // controller.wsGameGrid();
     }
   };
 
   return (
-    <div className="container">
+    <div className="menu-item">
       {gameOn ? (
         <>
-          <OnlineGame bufer={bufer} controller = {controller}/>
+          <OnlineGame bufer={bufer} controller = {controller} isWait = {isWait}/>
+        </>
+      ) : 
+      isWait ? (
+        <>
+          <p>Wait another user...</p>
+        </>
+      ) :
+      bufer.action === 'TIMER' ? (
+        <>
+          <p>{bufer.data}</p>
         </>
       ) : (
         <div>

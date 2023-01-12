@@ -14,22 +14,22 @@ const GameOver = ({ message }) => {
   if (gameRestart === 'yes') {
     return (
       <GameLoop
-        gridSide={200}
-        trailLength={1000}
-        gameSpeed={20}
+        gridSide={50}
+        trailLength={100}
+        gameSpeed={40}
         player1={"player1"}
         player2={"player2"}
       />
     );
   } else if (gameRestart === 'no'){
     return (
-      <div className="GameOver">
+      <div className="menu-item">
         <header className="GameOver-header">
           Game Over
           <p>{message}</p>
-          <button className= "Button-1" onClick={() => setRestartGame('yes')}>PLAY AGAIN</button>
-          <button className= "Button-1" onClick={() => setRestartGame('startMenu')}>RETURN TO MAIN MENU</button>
         </header>
+          <button className= "button" onClick={() => setRestartGame('yes')}>PLAY AGAIN</button>
+          <button className= "button" onClick={() => setRestartGame('startMenu')}>RETURN TO MAIN MENU</button>
       </div>
     );
   } else if (gameRestart === 'startMenu'){
