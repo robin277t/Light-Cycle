@@ -49,8 +49,10 @@ body {
   box-shadow: 0 2px 3px hsla(0, 0, 0, 0.7);
 }
 
-.button {
+button {
   background-color: #f39c12;
+  border-radius: 5px;
+  margin: 5px;
 }
 /* :nth-of-type(2) {
     background: darken(#f39c12, 5%);
