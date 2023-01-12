@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import GridMaker from "./GridMaker.js";
 import GridMakerVerGame from "./GridMakerVerGame.js";
 import GameOver from "../menus/GameOver.js";
-// import computerPlayer from "./ComputerPlayer";
+import ComputerPlayer from "./ComputerPlayer";
 import "./GameLoop.css";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
@@ -171,14 +171,14 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
       const gameTick = setInterval(() => {
         moveCycle(1, direction1, cycle1);
         moveCycle(2, direction2, cycle2);
-        checkCollision();
         createCycleTrail(1, cycle1, trail1);
         createCycleTrail(2, cycle2, trail2);
+        checkCollision();
+        if (player2 === "computer") {
+          ComputerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide);
+        }
         // if (player1 === "computer") {
-        //   computerPlayer(direction1, cycle1LookAhead, collisionArray, gridSide);
-        // }
-        // if (player2 === "computer") {
-        //   computerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide);
+        //   ComputerPlayer(direction1, cycle1LookAhead, collisionArray, gridSide);
         // }
       }, gameSpeed);
       return () => clearInterval(gameTick);
@@ -194,8 +194,9 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
           className="grid-area"
           type="text"
           onKeyDown={handleDirectionChange}
+          autoFocus
         />
-        <GridMakerVerGame
+        <GridMaker
           key="someKey"
           cycle1={cycle1}
           cycle2={cycle2}

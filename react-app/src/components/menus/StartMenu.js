@@ -13,18 +13,17 @@ const StartMenu = () => {
 
   if (menuSelect === 'none') {
     return (
-      <div classname="menu-container">
-        <h2 className="menu-item">
-          <body>  
-          <button type="button" classname="button" onClick={() => selectMenu('offline')}>
+      <div className="menu-container">
+        <div className="menu-item">
+          <button type="button" className="button" onClick={() => selectMenu('offline')}>
               Player VS Ai
             </button>
 
-            <button type="button" classname="button" onClick={() => selectMenu('multiplayer')}>
+            <button type="button" className="button" onClick={() => selectMenu('multiplayer')}>
               Player VS Player
             </button>
 
-            <button type="button" classname="button" onClick={() => selectMenu('online')}>
+            <button type="button" className="button" onClick={() => selectMenu('online')}>
               Online
             </button>
             {/* <button>
@@ -36,8 +35,7 @@ const StartMenu = () => {
           <button>
             <a href='/Leaderboard'>Leaderboard</a>
           </button> */}
-          </body>
-        </h2>
+        </div>
       </div>
     );
   }else if(menuSelect == 'online'){
@@ -50,7 +48,7 @@ const StartMenu = () => {
   } else if(menuSelect == 'host_game'){
     return(<div>
     <h1>This is HOST menu</h1>
-    <button type="button" classname="button" onClick={() => selectMenu('Start_online_game')}>
+    <button type="button" className="button" onClick={() => selectMenu('Start_online_game')}>
               Start Game
             </button>
 
@@ -58,14 +56,14 @@ const StartMenu = () => {
 
     
    
-  } else {
+  } else if (menuSelect === "offline") {
     return (
       <GameLoop
-        gridSide={50}
-        trailLength={100}
-        gameSpeed={200}
+        gridSide={10}
+        trailLength={10}
+        gameSpeed={300}
         player1={"player1"}
-        player2={"player2"}
+        player2={"computer"}
       />
     );
   }
