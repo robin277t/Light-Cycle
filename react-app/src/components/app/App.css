@@ -56,15 +56,20 @@ body {
   transform: translate(0);
   margin: 0 auto;
   width: 350px;
+  
 }
 
 .menu-item {
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
-  list-style: none;
   color: white;
   cursor: pointer;
-  display: flex;
+  justify-items: center;
+  position: relative;
   font-size: 24px;
+  width: 600px;
   justify-content: center;
   letter-spacing: 4px;
   text-align: center;
@@ -113,43 +118,3 @@ button:hover
   transform: rotateX(0deg);
   animation: in  0.5s  linear;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-button {
-  background:yellow;
-  box-shadow:10px 10px 0 rgba(0,0,0,.5);
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 14em;
-  font-size:2em;
-  font-family: 'Orbitron', sans-serif;
-  padding:.5em 2em;
-  text-decoration:none;
-  transform: skew(-20deg);
-
-}
-
-button:hover {
-
-  box-shadow: 0 0 0 ;
-}
-*/

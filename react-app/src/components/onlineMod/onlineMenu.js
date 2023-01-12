@@ -33,7 +33,7 @@ const OnlineMenu = () => {
   };
 
   return (
-    <div className="container">
+    <div className="menu-item">
       {gameOn ? (
         <>
           <OnlineGame bufer={bufer} controller = {controller}/>

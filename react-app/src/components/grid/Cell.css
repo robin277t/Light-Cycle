@@ -1,5 +1,5 @@
 .cell {
-    background-color: #282c34;
+    background-color: #34495E;
     /* border: 1px solid lightcyan; */
     color: white;
     /* height: 100%;
@@ -9,21 +9,21 @@
     display: inline-flex;
 }
 .head1 {
-    background-color: blueviolet;
-}
-
-.head2 {
-    background-color: rgb(4, 114, 46);
-}
-
-.wall {
-    background-color: cyan;
-}
-
-.trail1 {
     background-color: red;
 }
 
+.head2 {
+    background-color: blue;
+}
+
+.wall {
+    background-color: #F39C12;
+}
+
+.trail1 {
+    background-color: #A62B17;
+}
+
 .trail2 {
-    background-color: rgb(200, 238, 46);
+    background-color: #479FF8;
 }

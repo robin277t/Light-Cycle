@@ -146,11 +146,11 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
       return;
     }
     if (collisionArray.includes(cycle1LookAhead)) {
-      setGameStatus(`${player1} died`);
+      setGameStatus(`${player2} won`);
       return;
     }
     if (collisionArray.includes(cycle2LookAhead)) {
-      setGameStatus(`${player2} died`);
+      setGameStatus(`${player1} won`);
       return;
     }
   };

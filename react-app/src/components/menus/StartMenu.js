@@ -14,7 +14,6 @@ const StartMenu = () => {
 
   if (menuSelect === "none") {
     return (
-      <div className="menu-container">
         <div className="menu-item">
             <button
               type="button"
@@ -39,22 +38,7 @@ const StartMenu = () => {
             >
               Online
             </button>
-            {/* <button>
-            <a href='/Multiplayer'>Multiplayer</a>
-          </button>
-
-          <button
-            type="button"
-            className="button"
-            onClick={() => selectMenu("online")}
-          >
-            Online
-          </button>
-          <button>
-            <a href='/Leaderboard'>Leaderboard</a>
-          </button> */}
         </div>
-      </div>
     );
   } else if (menuSelect == "online") {
     return (
