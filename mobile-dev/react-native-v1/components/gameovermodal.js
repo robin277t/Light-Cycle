@@ -38,7 +38,7 @@ export default function GameOver() {
               </Text>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                OnPress={() => setModalVisible(!modalVisible)}
+                onPress={() => setModalVisible(!modalVisible)}
               >
                 <Text style={styles.textStyle}>Accept fate</Text>
               </Pressable>
