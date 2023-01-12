@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WSController from "./controller";
 import OnlineGame from "./onlineGame";
-
+import "./online.css";
 const OnlineMenu = () => {
   const [bufer, setBufer] = useState("");
   const [gameOn, setGameOn] = useState(false);
@@ -36,11 +36,10 @@ const OnlineMenu = () => {
     <div className="container">
       {gameOn ? (
         <>
-          <OnlineGame bufer={bufer} />
+          <OnlineGame bufer={bufer} controller = {controller}/>
         </>
       ) : (
         <div>
-          <h1>This is online menu</h1>
           <button type="button" className="button" onClick={quickGame}>
             Quick game
           </button>

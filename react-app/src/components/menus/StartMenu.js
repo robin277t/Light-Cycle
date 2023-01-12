@@ -14,12 +14,11 @@ const StartMenu = () => {
 
   if (menuSelect === "none") {
     return (
-      <div classname="menu-container">
-        <h1 className="menu-item">
-          <body>
+      <div className="menu-container">
+        <div className="menu-item">
             <button
               type="button"
-              classname="button"
+              className="button"
               onClick={() => selectMenu("offline")}
             >
               Player VS Ai
@@ -27,7 +26,7 @@ const StartMenu = () => {
 
             <button
               type="button"
-              classname="button"
+              className="button"
               onClick={() => selectMenu("multiplayer")}
             >
               Player VS Player
@@ -35,7 +34,7 @@ const StartMenu = () => {
 
             <button
               type="button"
-              classname="button"
+              className="button"
               onClick={() => selectMenu("online")}
             >
               Online
@@ -54,8 +53,7 @@ const StartMenu = () => {
           <button>
             <a href='/Leaderboard'>Leaderboard</a>
           </button> */}
-          </body>
-        </h1>
+        </div>
       </div>
     );
   } else if (menuSelect == "online") {
