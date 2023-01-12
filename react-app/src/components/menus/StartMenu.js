@@ -64,7 +64,7 @@ const StartMenu = () => {
       <GameLoop
         gridSide={50}
         trailLength={100}
-        gameSpeed={200}
+        gameSpeed={40}
         player1={"player1"}
         player2={"player2"}
       />
