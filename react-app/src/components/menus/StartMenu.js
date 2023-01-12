@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../app/index.scss";
-import "../app/App.css";
+// import "../app/index.scss";
+// import "../app/App.css";
 import GameLoop from "../grid/GameLoop.js";
 
 const StartMenu = () => {
@@ -36,7 +36,7 @@ const StartMenu = () => {
       <GameLoop
         gridSide={50}
         trailLength={100}
-        gameSpeed={30}
+        gameSpeed={200}
         player1={"player1"}
         player2={"player2"}
       />
