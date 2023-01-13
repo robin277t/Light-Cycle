@@ -51,32 +51,6 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   const [gameStatus, setGameStatus] = useState("Ongoing");
   let collisionArray = [];
 
-  // const handleDirectionChange = (event) => {
-  //   switch (event.key) {
-  //     case "a":
-  //       if (direction1 !== "right" && player1 !== "computer") {
-  //         setDirection1("left");
-  //       }
-  //       break;
-  //     case "d":
-  //       if (direction1 !== "left" && player1 !== "computer") {
-  //         setDirection1("right");
-  //       }
-  //       break;
-  //     case "w":
-  //       if (direction1 !== "bottom" && player1 !== "computer") {
-  //         setDirection1("top");
-  //       }
-  //       break;
-  //     case "s":
-  //       if (direction1 !== "top" && player1 !== "computer") {
-  //         setDirection1("bottom");
-  //       }
-  //       break;
-  //     default:
-  //   }
-  // };
-
   const moveCycle = (playerNum, direction, position) => {
     let tempPos = position;
     switch (direction) {
@@ -134,11 +108,11 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
       return;
     }
     if (collisionArray.includes(cycle1LookAhead)) {
-      setGameStatus(`${player1} died`);
+      setGameStatus(`${player2} won`);
       return;
     }
     if (collisionArray.includes(cycle2LookAhead)) {
-      setGameStatus(`${player2} died`);
+      setGameStatus(`${player1} won`);
       return;
     }
   };
@@ -157,11 +131,11 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   useEffect(() => {
     if (gameStatus === "Ongoing") {
       const gameTick = setInterval(() => {
-        moveCycle(1, direction1, cycle1);
-        moveCycle(2, direction2, cycle2);
         checkCollision();
         createCycleTrail(1, cycle1, trail1);
         createCycleTrail(2, cycle2, trail2);
+        moveCycle(1, direction1, cycle1);
+        moveCycle(2, direction2, cycle2);
         // if (player1 === "computer") {
         //   computerPlayer(direction1, cycle1LookAhead, collisionArray, gridSide);
         // }

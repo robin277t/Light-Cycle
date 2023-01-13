@@ -46,20 +46,17 @@ const StartMenu = () => {
         <OnlineMenu />
       </>
     );
-  } else if (menuSelect == "host_game") {
+  } else if (menuSelect === "offline") {
     return (
-      <>
-        <h1>This is HOST menu</h1>
-        <button
-          type="button"
-          className="button"
-          onClick={() => selectMenu("Start_online_game")}
-        >
-          Start Game
-        </button>
-      </>
+      <GameLoop
+        gridSide={50}
+        trailLength={100}
+        gameSpeed={40}
+        player1={"player1"}
+        player2={"computer"}
+      />
     );
-  } else {
+  } else if (menuSelect === "multiplayer"){
     return (
       <GameLoop
         gridSide={50}

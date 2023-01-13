@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from "react";
-import WSController from "./controller";
-import OnlineGame from "./onlineGame";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Alert,
+  Modal,
+  Pressable,
+  Button,
+} from "react-native";
+import WSController from "../grid/controller";
+import OnlineGame from "../grid/onlineGame";
 import StartMenu from "../menus/StartMenu";
 
-import "./online.css";
 const OnlineMenu = () => {
   const [bufer, setBufer] = useState("");
   const [gameOn, setGameOn] = useState(false);
@@ -47,35 +56,44 @@ const OnlineMenu = () => {
   }
 
   return (
-    <div className="menu-item">
+    <View className="menu-item">
       {gameOn ? (
         <>
           <OnlineGame bufer={bufer} controller={controller} isWait={isWait} />
         </>
       ) : isWait ? (
         <>
-          <p>Waiting for another user...</p>
+          <Text>Waiting for another user...</Text>
         </>
       ) : bufer.action === "TIMER" ? (
         <>
           <p>{bufer.data}</p>
         </>
       ) : (
-        <div>
-          <button type="button" className="button" onClick={quickGame}>
-            Join game
-          </button>
+        <View>
+          <Button
+            title="Join Game"
+            type="button"
+            className="button"
+            onPress={quickGame}
+          ></Button>
 
-          <button type="button" className="button" onClick={createGame}>
-            Create Game
-          </button>
+          <Button
+            title="Create Game"
+            type="button"
+            className="button"
+            onPress={createGame}
+          ></Button>
 
-          <button type="button" className="button" onClick={() => startMenu()}>
-            Return
-          </button>
-        </div>
+          <Button
+            title="Return to Start Menu"
+            type="button"
+            className="button"
+            onPress={() => startMenu()}
+          ></Button>
+        </View>
       )}
-    </div>
+    </View>
   );
 };
 

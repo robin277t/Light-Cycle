@@ -10,6 +10,7 @@ import {
   Button,
 } from "react-native";
 import GameLoop from "../grid/GameLoop.js";
+import OnlineMenu from "./onlineMenu.js";
 
 const StartMenu = () => {
   const [menuSelect, setMenuSelect] = useState("none");
@@ -20,14 +21,24 @@ const StartMenu = () => {
 
   if (menuSelect === "none") {
     return (
-      <Button
-        title="start a game dude"
-        onPress={() => {
-          selectMenu("multiplayer");
-        }}
-      ></Button>
+      <View>
+        <Button
+          title="Player VS Ai"
+          onPress={() => {
+            selectMenu("offline");
+          }}
+        ></Button>
+        <Button
+          title="Online Multiplayer"
+          onPress={() => {
+            selectMenu("online");
+          }}
+        ></Button>
+      </View>
     );
-  } else {
+  } else if (menuSelect === "online") {
+    return <OnlineMenu />;
+  } else if (menuSelect === "offline") {
     return (
       <GameLoop
         gridSide={40}
