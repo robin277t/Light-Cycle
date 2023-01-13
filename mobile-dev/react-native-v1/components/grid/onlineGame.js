@@ -38,15 +38,15 @@ const OnlineGame = ({ bufer, controller, isWait }) => {
         tempY = (index - tempX) / gridSideClone;
       }
       if (value === "*") {
-        color = "yellow";
-      } else if (value === 1) {
         color = "red";
+      } else if (value === 1) {
+        color = "blue";
       } else if (value === 2) {
         color = "blue";
       } else if (value === 8) {
-        color = "green";
+        color = "#479FF8";
       } else if (value === 9) {
-        color = "purple";
+        color = "#A62B1";
       }
       return { value: value, x: tempX, y: tempY, color: color };
     });
@@ -92,7 +92,7 @@ const OnlineGame = ({ bufer, controller, isWait }) => {
             width: gridSize,
             height: gridSize,
             flex: null,
-            backgroundColor: "grey",
+            backgroundColor: "#34495E",
             position: "relative",
             top: 0,
           }}

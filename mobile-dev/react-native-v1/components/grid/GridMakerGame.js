@@ -72,7 +72,7 @@ export default function GridMakerGame({
           width: gridSize,
           height: gridSize,
           flex: null,
-          backgroundColor: "grey",
+          backgroundColor: "#34495E",
           position: "relative",
           top: 0,
         }}
@@ -84,7 +84,7 @@ export default function GridMakerGame({
               style={{
                 width: cellSize,
                 height: cellSize,
-                backgroundColor: "brown",
+                backgroundColor: "#F39C12",
                 position: "absolute",
                 left: cell.x * cellSize,
                 top: cell.y * cellSize,
@@ -100,7 +100,7 @@ export default function GridMakerGame({
                 style={{
                   width: cellSize,
                   height: cellSize,
-                  backgroundColor: "pink",
+                  backgroundColor: "#A62B17",
                   position: "absolute",
                   left: cell.x * cellSize,
                   top: cell.y * cellSize,
@@ -117,7 +117,7 @@ export default function GridMakerGame({
                 style={{
                   width: cellSize,
                   height: cellSize,
-                  backgroundColor: "yellow",
+                  backgroundColor: "#479FF8",
                   position: "absolute",
                   left: cell.x * cellSize,
                   top: cell.y * cellSize,
@@ -142,7 +142,7 @@ export default function GridMakerGame({
           style={{
             width: cellSize,
             height: cellSize,
-            backgroundColor: "green",
+            backgroundColor: "blue",
             position: "absolute",
             left: coordConverter(cycle2).x * cellSize,
             top: coordConverter(cycle2).y * cellSize,

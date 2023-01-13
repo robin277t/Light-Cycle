@@ -7,7 +7,15 @@ import StartMenu from "./components/menus/StartMenu.js";
 export default function App() {
   return (
     <>
-      <StatusBar hidden={true}/>
+      <StatusBar hidden={true} />
+      <View
+        className="App-link"
+        href="https://www.youtube.com/watch?v=cFuRPMjYKhs&t=181s"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Text>Light Cycle</Text>
+      </View>
       <StartMenu />
     </>
   );

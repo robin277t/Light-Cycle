@@ -45,7 +45,7 @@ const StartMenu = () => {
         trailLength={10}
         gameSpeed={20}
         player1={"player1"}
-        player2={"player2"}
+        player2={"computer"}
       />
     );
   }
