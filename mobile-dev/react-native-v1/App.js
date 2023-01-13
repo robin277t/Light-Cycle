@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import GameLoop from "./components/grid/GameLoop";
 import GridMakerGame from "./components/grid/GridMakerGame.js";
 import StartMenu from "./components/menus/StartMenu.js";
+import React, { Component } from "react";
 
 export default function App() {
   return (

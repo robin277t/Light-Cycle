@@ -27,7 +27,7 @@ export default function GameOver({ message }) {
         trailLength={10}
         gameSpeed={10}
         player1={"player1"}
-        player2={"player2"}
+        player2={"computer"}
       />
     );
   } else if (gameRestart === "no") {

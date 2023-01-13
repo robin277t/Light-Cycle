@@ -1,4 +1,4 @@
-const computerPlayer = (direction, nextPos, collisionArray, gridSide) => {
+const ComputerPlayer = (direction, nextPos, collisionArray, gridSide) => {
   let computerLookAhead = nextPos;
   let newDir = direction;
   let turnOption1 = "top";
@@ -32,27 +32,31 @@ const computerPlayer = (direction, nextPos, collisionArray, gridSide) => {
     }
   };
 
-  const checkLookAhead = () => {
-    if (collisionArray.includes(computerLookAhead)) {
-      changeCycleDirIfNeeded();
-    }
-      newDir = tempDirChoice
-  };
+//   const checkLookAhead = () => {
+//     if (collisionArray.includes(computerLookAhead)) {
+//       changeCycleDirIfNeeded();
+//     }
+//       newDir = tempDirChoice
+//   };
 
-  const changeCycleDirIfNeeded = () => {
-    if (Math.random() < 0.5) {
-      tempDirChoice = turnOption1;
-    } else {
-      tempDirChoice = turnOption2;
-    }
-    setLookAhead(tempDirChoice);
-    checkLookAhead();
-  };
+//   const changeCycleDirIfNeeded = () => {
+//     if (Math.random() < 0.5) {
+//       tempDirChoice = turnOption1;
+//     } else {
+//       tempDirChoice = turnOption2;
+//     }
+//     // setLookAhead(tempDirChoice);
+//     // checkLookAhead();
+//       newDir = tempDirChoice
+//   };
 
-//   choiceRandomMovements();
+// //   choiceRandomMovements();
 //   setLookAhead(direction);
 //   checkLookAhead(computerLookAhead);
-  return "right";
+//     console.log(newDir);
+//     console.log("being called");
+    
+  return "bottom";
 };
 
-export default computerPlayer;
+export default ComputerPlayer;

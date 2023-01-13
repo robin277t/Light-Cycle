@@ -38,9 +38,9 @@ const OnlineGame = ({ bufer, controller, isWait }) => {
         tempY = (index - tempX) / gridSideClone;
       }
       if (value === "*") {
-        color = "red";
+        color = "#F39C12";
       } else if (value === 1) {
-        color = "blue";
+        color = "red";
       } else if (value === 2) {
         color = "blue";
       } else if (value === 8) {

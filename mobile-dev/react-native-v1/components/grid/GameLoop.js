@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import GridMakerGame from "./GridMakerGame.js";
 import GameOver from "../menus/GameOver.js";
-import computerPlayer from "./ComputerPlayer";
+import ComputerPlayer from "./ComputerPlayer.js";
 
 const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   //player1 and player2 have values 'your_name' if a human player,  and 'computer' if either player is to be a bot
@@ -128,6 +128,26 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
     }
   };
 
+  const setLookAhead = (directionToSet) => {
+    let turnOption1 = "top";
+    let turnOption2 = "bottom";
+    let randomiser = Math.random();
+
+    if (directionToSet === "top") {
+      turnOption1 = "right";
+      turnOption2 = "left";
+    }
+    if (directionToSet === "bottom") {
+      turnOption1 = "right";
+      turnOption2 = "left";
+    }
+    if (randomiser < 0.1) {
+      return turnOption1;
+    } else if (randomiser > 0.9) {
+      return turnOption2;
+    } else return directionToSet;
+  };
+
   useEffect(() => {
     if (gameStatus === "Ongoing") {
       const gameTick = setInterval(() => {
@@ -138,7 +158,7 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
         moveCycle(2, direction2, cycle2);
 
         if (player2 === "computer") {
-          computerPlayer(direction2, cycle2LookAhead, collisionArray, gridSide);
+          setDirection2(setLookAhead(direction2));
         }
       }, gameSpeed);
       return () => clearInterval(gameTick);
