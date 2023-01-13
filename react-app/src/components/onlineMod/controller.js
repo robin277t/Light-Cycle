@@ -34,6 +34,13 @@ class Controller {
             })
           break;
 
+          case 'WINNER' :
+            this.callback({
+              action: 'WINNER',
+              data: parseMessage.data
+            })
+            break;
+
           default:
             this.callback({
               action: 'MESSAGE',

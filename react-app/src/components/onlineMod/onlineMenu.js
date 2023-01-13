@@ -10,6 +10,7 @@ const OnlineMenu = () => {
   const [controller, setController] = useState(new WSController(setBufer));
   const [isWait, setIsWait] = useState(false);
   const [isStartMenu, setIsStartMenu] = useState(false);
+  const [gameResult, setGameResult] = useState(null)
 
   useEffect(() => {
     controller.wsConnect();
@@ -19,8 +20,11 @@ const OnlineMenu = () => {
     if (bufer.action === "GRID") {
       setGameOn(true);
       setIsWait(false);
-      console.log(bufer);
+    } else if (bufer.action === 'WINNER') {
+      setGameOn(false);
+      setGameResult(bufer.data)
     }
+
   }, [bufer]);
 
   const quickGame = () => {
@@ -52,16 +56,18 @@ const OnlineMenu = () => {
         <>
           <OnlineGame bufer={bufer} controller={controller} isWait={isWait} />
         </>
+      ) : isWait && bufer.action === "TIMER" ? (
+        <>
+        <p>{bufer.data}</p>
+          
+        </>
       ) : isWait ? (
         <>
           <p>Waiting for another user...</p>
         </>
-      ) : bufer.action === "TIMER" ? (
-        <>
-          <p>{bufer.data}</p>
-        </>
       ) : (
         <div>
+          {(gameResult !== null) && <p>{gameResult}</p>}
           <button type="button" className="button" onClick={quickGame}>
             Join game
           </button>

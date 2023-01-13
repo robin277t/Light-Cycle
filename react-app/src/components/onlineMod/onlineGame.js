@@ -7,7 +7,6 @@ const OnlineGame = ({ bufer, controller, isWait }) => {
   const gridColumns = "auto ".repeat(Math.sqrt(bufer.data.length));
   const gridStyle = { gridTemplateColumns: gridColumns };
 
-  console.log(bufer.data);
   const handleDirectionChange = (event) => {
     switch (event.key) {
       case "a":
