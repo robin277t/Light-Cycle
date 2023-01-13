@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./online.css";
 import Cell from "../grid/Cell";
+import GameOver from "../menus/GameOver";
 
 const OnlineGame = ({ bufer, controller, isWait }) => {
   const gridColumns = "auto ".repeat(Math.sqrt(bufer.data.length));
@@ -31,13 +32,13 @@ const OnlineGame = ({ bufer, controller, isWait }) => {
       <p className="timer">
         {bufer.action === "TIMER" || isWait
           ? bufer.data
-          : "Wait another player"}
+          : "Waiting for another player"}
       </p>
     );
   } else {
     return (
       <>
-        {isWait ? <div className="game-message">{bufer.data}</div> : <p>111</p>}
+        {isWait ? <div className="game-message">{bufer.data}</div> : <GameOver message={"online connection ended"}/>}
 
         <input
           className="grid-area-online"
@@ -45,9 +46,7 @@ const OnlineGame = ({ bufer, controller, isWait }) => {
           onKeyDown={handleDirectionChange}
           autoFocus
         />
-        {/* <div className="game-grid-online"> */}
-        {/* <div>{bufer.data}</div> */}
-
+  
         <div className="grid" style={gridStyle}>
           {bufer.action === "GRID" &&
             bufer.data.map((value, index) => {

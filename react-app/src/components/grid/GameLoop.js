@@ -186,7 +186,7 @@ const GameLoop = ({ gridSide, trailLength, gameSpeed, player1, player2 }) => {
   }, [cycle1, cycle2, direction1, direction2]);
 
   if (gameStatus !== "Ongoing") {
-    return <GameOver message={gameStatus} />;
+    return <GameOver message={gameStatus} player2={player2} />;
   } else {
     return (
       <>

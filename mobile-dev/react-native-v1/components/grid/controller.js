@@ -51,7 +51,7 @@ class Controller {
     this.myWs.send(JSON.stringify({action: 'USERS'}));
   }
 
-  wsNewGame = (gridSide = 50, trailLength = 100, gameSpeed = 100) => {
+  wsNewGame = (gridSide = 50, trailLength = 100, gameSpeed = 40) => {
     const gameSetup = {
         gridSide,
         trailLength,

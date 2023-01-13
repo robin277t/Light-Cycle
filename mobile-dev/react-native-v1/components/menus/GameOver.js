@@ -25,34 +25,33 @@ export default function GameOver({ message }) {
       <GameLoop
         gridSide={40}
         trailLength={10}
-        gameSpeed={20}
+        gameSpeed={10}
         player1={"player1"}
         player2={"player2"}
       />
     );
   } else if (gameRestart === "no") {
-    console.log("plain game over screen");
-
     return (
-      <View style={styles.modalView}>
-        <Text>Why me</Text>
+      // <View style={styles.modalView}>
+      <View>
+        <Text>Game Over</Text>
+        <Text>{message}</Text>
         <Button
-          title="Restart GAME"
+          title="Restart Game"
           style={[styles.button, styles.buttonClose]}
           onPress={() => {
-            console.log("yay");
             setRestartGame("yes");
           }}
         >
           <Text style={styles.textStyle}>Restart Game</Text>
         </Button>
-        <Pressable
-          title="pressme"
+        <Button
+          title="Return to Start Menu"
           style={[styles.button, styles.buttonClose]}
           onPress={() => setRestartGame("startMenu")}
         >
           <Text style={styles.textStyle}>Return to Start Menu</Text>
-        </Pressable>
+        </Button>
       </View>
     );
   } else if (gameRestart === "startMenu") {
